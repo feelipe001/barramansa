@@ -1,0 +1,361 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Moda em Barra Mansa - GuiaBarraMansa</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .ad-container { background-color: #f8f9fa; border: 1px dashed #dee2e6; }
+      </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+
+      <header class="bg-white shadow py-6 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-900">👗 Moda em Barra Mansa</h1>
+        <p class="text-gray-600">Conheça 10 lugares incríveis da cidade!</p>
+      </header>
+
+      <section class="py-10">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+        <div onclick="openModal(1)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,1" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 1" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 1</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 1 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(2)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,2" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 2" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 2</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 2 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(3)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,3" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 3" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 3</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 3 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(4)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,4" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 4" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 4</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 4 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+            <div class="ad-container rounded-lg h-40 flex items-center justify-center">
+                <p class="text-gray-500 text-sm">Espaço para anúncio 300x250</p>
+            </div>
+            
+        <div onclick="openModal(5)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,5" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 5" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 5</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 5 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(6)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,6" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 6" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 6</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 6 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(7)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,7" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 7" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 7</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 7 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(8)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,8" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 8" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 8</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 8 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+            <div class="ad-container rounded-lg h-40 flex items-center justify-center">
+                <p class="text-gray-500 text-sm">Espaço para anúncio 300x250</p>
+            </div>
+            
+        <div onclick="openModal(9)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,9" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 9" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 9</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 9 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        <div onclick="openModal(10)" class="cursor-pointer bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition duration-300">
+          <img src="https://source.unsplash.com/400x250/?fashion,10" class="w-full h-40 object-cover rounded-lg mb-4" alt="Moda Exemplo 10" />
+          <h2 class="text-lg font-semibold text-blue-900">Moda Exemplo 10</h2>
+          <p class="text-sm text-gray-600 mb-3">Bairro 10 - Moda de qualidade e atendimento diferenciado.</p>
+          <span class="inline-block bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-sm">Ver mais</span>
+        </div>
+        
+        </div>
+      </section>
+
+      
+        <div id="modal-1" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 1</h2>
+              <button onclick="closeModal(1)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 1 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+1" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-2" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 2</h2>
+              <button onclick="closeModal(2)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 2 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+2" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-3" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 3</h2>
+              <button onclick="closeModal(3)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 3 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+3" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-4" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 4</h2>
+              <button onclick="closeModal(4)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 4 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+4" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-5" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 5</h2>
+              <button onclick="closeModal(5)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 5 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+5" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-6" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 6</h2>
+              <button onclick="closeModal(6)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 6 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+6" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-7" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 7</h2>
+              <button onclick="closeModal(7)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 7 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+7" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-8" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 8</h2>
+              <button onclick="closeModal(8)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 8 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+8" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-9" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 9</h2>
+              <button onclick="closeModal(9)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 9 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+9" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+        <div id="modal-10" class="fixed inset-0 z-50 bg-black bg-opacity-60 hidden flex items-center justify-center px-4">
+          <div class="bg-white rounded-xl max-w-xl w-full p-6 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-bold text-blue-900">Moda Exemplo 10</h2>
+              <button onclick="closeModal(10)" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <img src="https://source.unsplash.com/300x200/?fashion,1" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,2" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,3" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,4" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,5" class="rounded-lg object-cover" />
+<img src="https://source.unsplash.com/300x200/?fashion,6" class="rounded-lg object-cover" />
+            </div>
+            <p class="text-gray-700 mb-4">Bairro 10 - Moda de qualidade e atendimento diferenciado.</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://wa.me/5524999999999" target="_blank" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded text-center">Falar no WhatsApp</a>
+              <a href="https://www.instagram.com" target="_blank" class="bg-pink-500 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Instagram</a>
+              <a href="https://www.google.com/maps?q=Barra+Mansa+Bairro+10" target="_blank" class="bg-blue-900 text-white text-sm font-semibold py-2 px-4 rounded text-center">Ver no Google Maps</a>
+            </div>
+          </div>
+        </div>
+        
+
+      <footer class="bg-white border-t py-6 mt-10">
+        <div class="text-center">
+          <p class="text-gray-600 text-sm">© 2025 GuiaBarraMansa</p>
+        </div>
+      </footer>
+
+      <div class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-100 py-2 px-4 flex justify-center items-center shadow-inner">
+        <div class="ad-container rounded-lg flex items-center justify-center h-12 w-full">
+          <p class="text-gray-500 text-xs">Espaço para anúncio 320x50</p>
+        </div>
+      </div>
+
+      <script>
+        function openModal(id) {
+          document.getElementById('modal-' + id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+          document.getElementById('modal-' + id).classList.add('hidden');
+        }
+      </script>
+
+    </body>
+    </html>
+    
