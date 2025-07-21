@@ -304,5 +304,31 @@ Se você busca [benefício principal do serviço/produto], essa é a escolha cer
     }
   });
 </script>
+    <!-- Botão flutuante -->
+<button onclick="toggleFeedback()" 
+  class="fixed bottom-5 right-5 bg-yellow-500 text-white px-4 py-2 rounded-full shadow-lg z-50 hover:bg-yellow-600">
+  💬 Feedback
+</button>
+
+<!-- Modal de Feedback -->
+<div id="feedbackModal" 
+  class="hidden fixed bottom-20 right-5 bg-white border border-gray-300 rounded-xl shadow-xl p-4 w-72 z-50">
+  <h3 class="text-lg font-semibold mb-2">Deixe seu feedback</h3>
+  <form action="https://formsubmit.co/afroworlld@gmail.com" method="POST">
+    <textarea name="mensagem" rows="3" placeholder="Escreva sua opinião..." 
+      class="w-full border border-gray-300 p-2 rounded mb-2 text-sm" required></textarea>
+    
+    <button type="submit" class="w-full bg-green-600 text-white py-1.5 rounded hover:bg-green-700 text-sm">
+      Enviar
+    </button>
+  </form>
+</div>
+
+<script>
+  function toggleFeedback() {
+    const modal = document.getElementById("feedbackModal");
+    modal.classList.toggle("hidden");
+  }
+</script>
 </body>
 </html>
