@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida em Barra Mansa - GuiaBarraMansa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .ad-container {
+            background-color: #f8f9fa;
+            border: 1px dashed #dee2e6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow py-6">
+        <div class="text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-900">🍔 Comida em Barra Mansa</h1>
+            <p class="text-gray-600">Confira os melhores lugares para comer na cidade</p>
+        </div>
+    </header>
+
+    <!-- Serviços -->
+    <section class="py-10">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-md p-5">
+                <img src="https://source.unsplash.com/400x250/?burger" class="w-full h-40 object-cover rounded-lg mb-4" alt="Hamburgueria Sabor BM">
+                <h2 class="text-lg font-semibold text-blue-900">Hamburgueria Sabor BM</h2>
+                <p class="text-sm text-gray-600 mb-3">Centro - Delivery e atendimento presencial com combos promocionais.</p>
+                <a href="https://wa.me/5524999999999" target="_blank" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg text-sm">Falar no WhatsApp</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-md p-5">
+                <img src="https://source.unsplash.com/400x250/?pizza" class="w-full h-40 object-cover rounded-lg mb-4" alt="Pizzaria Bella Massa">
+                <h2 class="text-lg font-semibold text-blue-900">Pizzaria Bella Massa</h2>
+                <p class="text-sm text-gray-600 mb-3">Ano Bom - Pizzas artesanais com massa fina e borda recheada.</p>
+                <a href="https://wa.me/5524988888888" target="_blank" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg text-sm">Falar no WhatsApp</a>
+            </div>
+
+            <!-- Ad Banner -->
+            <div class="ad-container rounded-lg h-40 flex items-center justify-center">
+                <p class="text-gray-500 text-sm">Espaço para anúncio 300x250</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé com Ad -->
+    <footer class="bg-white border-t py-6 mt-10">
+        <div class="text-center">
+            <p class="text-gray-600 text-sm">© 2025 GuiaBarraMansa</p>
+        </div>
+    </footer>
+
+    <!-- Ad Mobile Fixo -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-100 py-2 px-4 flex justify-center items-center shadow-inner">
+        <div class="ad-container rounded-lg flex items-center justify-center h-12 w-full">
+            <p class="text-gray-500 text-xs">Espaço para anúncio 320x50</p>
+        </div>
+    </div>
+
+</body>
+</html>
