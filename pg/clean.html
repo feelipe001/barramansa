@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Beauty - Lash & Nails Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        .testimonial-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .floating-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(59, 130, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20um%20horário%20com%20o%20Clean%20Beauty" 
+       class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl z-50 floating-btn hover:bg-green-600 transition-all">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img src="https://images.unsplash.com/photo-1596704017259-4d3a99dafdc4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+             alt="Clean Beauty Studio" class="absolute w-full h-full object-cover">
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Clean Beauty <span class="block text-3xl md:text-4xl font-light mt-4">Beleza simples, impacto extraordinário</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-10">Um site clean que transmite confiança e aumenta seus agendamentos</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20um%20horário%20com%20o%20Clean%20Beauty" 
+               class="gradient-bg text-white px-10 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition-all inline-block">
+                AGENDAR AGORA PELO WHATSAPP
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre o Clean Beauty</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Cuidar da sua beleza com profissionalismo e atenção aos detalhes. Nosso site conecta você às nossas melhores experiências.
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    No Clean Beauty, acreditamos que a verdadeira beleza vem da simplicidade e do cuidado meticuloso. Nossa equipe de especialistas está dedicada a proporcionar a você uma experiência relaxante e resultados excepcionais.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Profissionais Certificados</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Produtos Premium</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Ambiente Higienizado</span>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                     alt="Clean Beauty Studio" class="rounded-xl shadow-xl w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-16 bg-gray-50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nosso Portfólio</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1596703264022-75544d319564?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Lash Extension" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Extensão de Cílios</h3>
+                        <p class="text-gray-600">Resultado natural e duradouro</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Nail Art" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Nail Art Clean</h3>
+                        <p class="text-gray-600">Designs exclusivos e delicados</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Natural Lashes" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Alongamento Natural</h3>
+                        <p class="text-gray-600">Efeito de cílios perfeitos</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Spa Treatment" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Spa das Mãos</h3>
+                        <p class="text-gray-600">Hidratação e cuidados especiais</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1596704017259-4d3a99dafdc4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Lash Lift" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Lash Lift</h3>
+                        <p class="text-gray-600">Realce natural para seus cílios</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md bg-white">
+                    <img src="https://images.unsplash.com/photo-1597248374161-0a8d7f9f2f5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="French Manicure" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">French Manicure</h3>
+                        <p class="text-gray-600">Elegância atemporal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 px-6 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Nossos Serviços</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Service 1 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                    <i class="fas fa-eye text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Extensão de Cílios</h3>
+                    <p class="text-blue-100 mb-4">Fios de seda aplicados um a um para um efeito natural</p>
+                    <p class="text-2xl font-bold">R$ 140</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                    <i class="fas fa-star text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Alongamento Natural</h3>
+                    <p class="text-blue-100 mb-4">Técnica que valoriza seus cílios naturais</p>
+                    <p class="text-2xl font-bold">R$ 130</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                    <i class="fas fa-paint-brush text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Nail Art Clean</h3>
+                    <p class="text-blue-100 mb-4">Design minimalista para unhas impecáveis</p>
+                    <p class="text-2xl font-bold">R$ 150</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                    <i class="fas fa-spa text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Spa das Mãos</h3>
+                    <p class="text-blue-100 mb-4">Tratamento completo de hidratação e cuidados</p>
+                    <p class="text-2xl font-bold">R$ 110</p>
+                </div>
+            </div>
+            
+            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20um%20horário%20com%20o%20Clean%20Beauty" 
+               class="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-block">
+                QUERO AGENDAR MEU HORÁRIO
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">O Que Nossas Clientes Dizem</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Adorei o atendimento no Clean Beauty! As profissionais são extremamente cuidadosas e atenciosas. Meus cílios ficaram perfeitos e naturais."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana Clara" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ana Clara</h4>
+                            <p class="text-gray-500 text-sm">Cliente desde 2022</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Nunca havia feito alongamento de cílios antes e fui super bem recebida. A profissional explicou tudo com paciência e o resultado superou minhas expectativas!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Juliana" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Juliana</h4>
+                            <p class="text-gray-500 text-sm">Cliente desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "O spa das mãos é uma experiência relaxante incrível. Saio de lá com as unhas impecáveis e as mãos super hidratadas. Recomendo muito!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fernanda" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Fernanda</h4>
+                            <p class="text-gray-500 text-sm">Cliente desde 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Nossos Diferenciais</h2>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="gradient-bg w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Visual Clean</h3>
+                    <p class="text-gray-600">Ambiente limpo e organizado para sua total tranquilidade</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="gradient-bg w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Atendimento Acolhedor</h3>
+                    <p class="text-gray-600">Profissionais que cuidam de você com carinho e atenção</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="gradient-bg w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Agendamento Fácil</h3>
+                    <p class="text-gray-600">Marque seu horário em poucos cliques pelo WhatsApp</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center">
+                    <div class="gradient-bg w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Design Responsivo</h3>
+                    <p class="text-gray-600">Site otimizado para você agendar de qualquer dispositivo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 px-6 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Sua beleza merece um atendimento sem complicações</h2>
+            <p class="text-xl mb-10 text-blue-100">Agende agora mesmo seu horário e experimente a diferença Clean Beauty</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20um%20horário%20com%20o%20Clean%20Beauty" 
+               class="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-block">
+                AGENDAR PELO WHATSAPP
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Clean Beauty</h3>
+                <p class="text-gray-400">Beleza simples, impacto extraordinário</p>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-map-marker-alt mr-3"></i> Av. Paulista, 1000 - São Paulo
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-phone-alt mr-3"></i> (11) 9999-9999
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-envelope mr-3"></i> contato@cleanbeauty.com.br
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-bold mb-4">Redes Sociais</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 mt-4">Horário de funcionamento: Seg-Sáb: 9h-19h</p>
+            </div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+            <p>&copy; 2023 Clean Beauty. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for any interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
