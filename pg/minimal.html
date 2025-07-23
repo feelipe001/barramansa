@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Luxo - Beleza e Sofisticação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            500: '#D4AF37',
+                            600: '#C9A227',
+                        },
+                        dark: {
+                            900: '#121212',
+                            800: '#1E1E1E',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-gold {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(212, 175, 55, 0.4);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-white font-sans">
+    <!-- Hero Section -->
+    <section class="hero min-h-screen flex items-center justify-center px-4">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 text-gold-500">Minimal Luxo</h1>
+            <h2 class="text-2xl md:text-4xl font-display font-medium mb-8">Beleza e sofisticação em um só lugar</h2>
+            <p class="text-lg md:text-xl mb-12 opacity-90 max-w-2xl mx-auto">Um site minimalista que eleva sua marca</p>
+            <a href="#escolher" class="btn-gold bg-gold-500 text-dark-900 font-semibold py-3 px-8 rounded-full text-lg inline-block">QUERO ESSE SITE</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-4 bg-dark-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 text-gold-500">Sobre o Minimal Luxo</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-8">
+                Em um mercado onde a primeira impressão é tudo, seu site precisa transmitir elegância e profissionalismo desde o primeiro olhar. O Minimal Luxo foi cuidadosamente projetado para lash designers e nails designers que desejam comunicar sofisticação e confiança através de um design limpo e atemporal.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed">
+                Menos é mais quando cada elemento tem um propósito. Nosso design minimalista coloca seu trabalho em destaque, criando uma experiência que encanta seus clientes antes mesmo da primeira sessão.
+            </p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 px-4 bg-dark-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-16 text-center text-gold-500">Benefícios Exclusivos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-dark-800 p-8 rounded-lg text-center">
+                    <div class="text-gold-500 text-4xl mb-6">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Design Sofisticado</h3>
+                    <p class="opacity-90">
+                        Layout limpo e elegante que valoriza seu trabalho, com tipografia moderna e paleta de cores premium.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card-hover bg-dark-800 p-8 rounded-lg text-center">
+                    <div class="text-gold-500 text-4xl mb-6">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Totalmente Responsivo</h3>
+                    <p class="opacity-90">
+                        Perfeitamente adaptado para todos os dispositivos, garantindo que seus clientes tenham a melhor experiência em qualquer lugar.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card-hover bg-dark-800 p-8 rounded-lg text-center">
+                    <div class="text-gold-500 text-4xl mb-6">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agendamento Integrado</h3>
+                    <p class="opacity-90">
+                        Sistema de agendamento simplificado que permite aos clientes marcar horários diretamente pelo site.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 px-4 bg-dark-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-16 text-center text-gold-500">Galeria</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="gallery-img overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1596704017255-ee764e5d682a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Design de unhas" class="w-full h-auto object-cover">
+                </div>
+                <div class="gallery-img overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba0a8aaf06b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Design de cílios" class="w-full h-auto object-cover">
+                </div>
+                <div class="gallery-img overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1615484477770-c80fd753cab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Sala de beleza" class="w-full h-auto object-cover">
+                </div>
+                <div class="gallery-img overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1a102da2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Ferramentas de beleza" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="escolher" class="py-20 px-4 bg-dark-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 text-gold-500">Pronto para elevar sua marca?</h2>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                Transforme sua presença online com um site que reflete a qualidade do seu trabalho e atrai clientes que valorizam excelência.
+            </p>
+            <a href="#escolher" class="btn-gold bg-gold-500 text-dark-900 font-semibold py-4 px-12 rounded-full text-lg inline-block">ESCOLHER ESTE MODELO</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black text-center text-sm opacity-80">
+        <p>© 2023 Minimal Luxo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
