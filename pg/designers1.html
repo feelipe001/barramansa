@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sites Exclusivos para Lash & Nails Designers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D94880',
+                        secondary: '#7C3AED',
+                        gold: '#F5C542',
+                        dark: '#1F2937',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap');
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D94880 0%, #7C3AED 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .badge-gold {
+            position: relative;
+        }
+        
+        .badge-gold::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 9999px;
+            background: linear-gradient(45deg, #F5C542, #D4AF37, #F5C542);
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20garantir%20meu%20site%20+%20página%20bônus" 
+       class="floating-button bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-green-600 transition-colors">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 md:py-32 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Seu estúdio merece um site incrível <br> <span class="text-gold">— e agora com bônus exclusivo!</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
+                Escolha entre 5 modelos criados para Lash & Nails Designers, com domínio e hospedagem por 1 ano e receba de bônus uma página de vendas exclusiva para tráfego pago.
+            </p>
+            <a href="#models" class="bg-white text-primary font-bold py-4 px-10 rounded-full text-lg hover:bg-gray-100 transition-colors inline-block">
+                QUERO MEU SITE AGORA
+            </a>
+            
+            <div class="flex flex-wrap justify-center gap-4 mt-16">
+                <div class="bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 flex items-center">
+                    <i class="fas fa-check-circle mr-2 text-gold"></i>
+                    Domínio .com incluso por 1 ano
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 flex items-center">
+                    <i class="fas fa-check-circle mr-2 text-gold"></i>
+                    Hospedagem inclusa por 1 ano
+                </div>
+                <div class="badge-gold bg-gold text-dark font-bold rounded-full px-6 py-2 flex items-center">
+                    <i class="fas fa-gift mr-2"></i>
+                    Bônus: Página de vendas para tráfego pago
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl text-center font-bold mb-16 text-dark">
+                Como funciona
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop text-primary text-4xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">1. Escolha seu modelo</h3>
+                    <p class="text-gray-600">Selecione entre nossos 5 templates exclusivos para Lash & Nails Designers.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-envelope text-secondary text-4xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">2. Envie suas informações</h3>
+                    <p class="text-gray-600">Nos envie suas fotos, textos e preferências de cores.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-gold text-4xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">3. Receba seu site + bônus</h3>
+                    <p class="text-gray-600">Em até 7 dias seu site estará no ar com a página bônus pronta!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl text-center font-bold mb-16 text-dark">
+                Escolha seu modelo preferido
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Model 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center">
+                        <span class="text-white font-serif text-2xl font-bold">Glamour Chic</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Design sofisticado com elementos premium em rosa e dourado para destacar seu trabalho com elegância.</p>
+                        <a href="glamour.html" class="block w-full bg-primary hover:bg-primary/90 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            VER DEMONSTRAÇÃO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Model 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-700 flex items-center justify-center">
+                        <span class="text-gold font-serif text-2xl font-bold">Minimal Luxo</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Sofisticação com minimalismo e foco no essencial, perfeito para quem valoriza a elegância discreta.</p>
+                        <a href="minimal.html" class="block w-full bg-dark hover:bg-gray-800 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            VER DEMONSTRAÇÃO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Model 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-pink-200 to-gray-300 flex items-center justify-center">
+                        <span class="text-pink-600 font-serif text-2xl font-bold">Rose Elegance</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Delicadeza e estilo com toque romântico, ideal para profissionais que trabalham com designs femininos.</p>
+                        <a href="rose.html" class="block w-full bg-pink-500 hover:bg-pink-600 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            VER DEMONSTRAÇÃO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Model 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-600 to-purple-800 flex items-center justify-center">
+                        <span class="text-white font-serif text-2xl font-bold">Studio Pro</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Layout profissional focado em agendamentos e portfólio, com destaque para seus melhores trabalhos.</p>
+                        <a href="studio.html" class="block w-full bg-secondary hover:bg-purple-700 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            VER DEMONSTRAÇÃO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Model 5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-300 to-white flex items-center justify-center">
+                        <span class="text-blue-600 font-serif text-2xl font-bold">Clean Beauty</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Design clean e moderno com experiência do usuário em destaque, perfeito para quem valoriza simplicidade.</p>
+                        <a href="clean.html" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            VER DEMONSTRAÇÃO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Custom Option -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover border-2 border-primary">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                        <span class="text-white font-serif text-2xl font-bold">Personalizado</span>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">Quer algo único? Podemos criar um design totalmente personalizado para o seu estúdio.</p>
+                        <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20um%20site%20personalizado" 
+                           class="block w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white text-center font-bold py-3 px-4 rounded-lg transition-colors">
+                            FALAR COM ESPECIALISTA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="py-16 bg-gradient-to-r from-primary/10 to-secondary/10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="badge-gold inline-block mb-4">
+                        <span class="bg-gold text-dark font-bold rounded-full px-4 py-1 text-sm">
+                            BÔNUS EXCLUSIVO
+                        </span>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-dark">
+                        Ganhe uma página de vendas exclusiva para tráfego pago!
+                    </h2>
+                    <p class="text-gray-700 mb-6">
+                        Além do seu site profissional, você receberá uma página de vendas otimizada para anúncios, perfeita para divulgar cursos, mentorias ou serviços de Lash & Nails Designers.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        Um bônus essencial para atrair clientes com campanhas patrocinadas e aumentar suas vendas de forma estratégica.
+                    </p>
+                    <div class="flex items-center">
+                        <i class="fas fa-gift text-gold text-2xl mr-3"></i>
+                        <span class="font-bold">Incluído gratuitamente no seu pacote</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-2 rounded-xl shadow-xl">
+                        <div class="bg-gray-100 h-8 rounded-t-lg flex items-center px-3">
+                            <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-100 to-purple-100 h-80 rounded-b-lg flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <h3 class="font-serif text-xl font-bold mb-2 text-dark">Página de Vendas Exclusiva</h3>
+                                <p class="text-gray-600 mb-4">Otimizada para conversão em anúncios</p>
+                                <div class="h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-4"></div>
+                                <div class="grid grid-cols-2 gap-2 mb-4">
+                                    <div class="bg-white/80 rounded p-2 text-sm">Destaque para benefícios</div>
+                                    <div class="bg-white/80 rounded p-2 text-sm">Depoimentos reais</div>
+                                    <div class="bg-white/80 rounded p-2 text-sm">Gatilhos visuais</div>
+                                    <div class="bg-white/80 rounded p-2 text-sm">CTA estratégico</div>
+                                </div>
+                                <div class="bg-primary text-white text-sm font-bold py-2 px-4 rounded-full inline-block">
+                                    AGENDE AGORA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl text-center font-bold mb-16 text-dark">
+                O que está incluso no seu pacote
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flex items-start">
+                    <div class="bg-primary/10 text-primary rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-globe text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Domínio .com ou .com.br</h3>
+                        <p class="text-gray-600">Incluso por 1 ano (R$ 99/ano após o primeiro ano)</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-secondary/10 text-secondary rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-server text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Hospedagem premium</h3>
+                        <p class="text-gray-600">Inclusa por 1 ano (R$ 299/ano após o primeiro ano)</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-gold/10 text-gold rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-palette text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Modelo exclusivo</h3>
+                        <p class="text-gray-600">Escolha entre 5 templates profissionais</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-pink-500/10 text-pink-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-ad text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Página de vendas bônus</h3>
+                        <p class="text-gray-600">Otimizada para tráfego pago e conversões</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-purple-500/10 text-purple-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Suporte básico</h3>
+                        <p class="text-gray-600">Por 30 dias para ajustes iniciais</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-blue-500/10 text-blue-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                        <i class="fas fa-mobile-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Totalmente responsivo</h3>
+                        <p class="text-gray-600">Adaptado para celulares e tablets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-4xl text-center font-bold mb-16 text-dark">
+                O que nossas clientes dizem
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Ana Carolina</h4>
+                            <div class="flex text-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Meu site Glamour Chic trouxe um ar de sofisticação ao meu estúdio. Em 2 meses já tripliquei meus agendamentos e os clientes chegam comentando sobre como o site é lindo!"
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center text-purple-600 font-bold mr-4">J</div>
+                        <div>
+                            <h4 class="font-bold">Juliana Santos</h4>
+                            <div class="flex text-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "A página bônus foi um divisor de águas! Uso para divulgar meu curso de alongamento de cílios e a conversão aumentou 70%. Vale cada centavo investido."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center text-blue-600 font-bold mr-4">M</div>
+                        <div>
+                            <h4 class="font-bold">Marcela Fernandes</h4>
+                            <div class="flex text-gold">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Finalmente tenho um site que reflete a qualidade do meu trabalho. O modelo Minimal Luxo combina perfeitamente com minha marca e os clientes adoram a experiência."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Não é só um site. É sua presença digital completa!
+            </h2>
+            <p class="text-xl mb-10">
+                Com bônus exclusivo para aumentar suas vendas e atrair mais clientes qualificados.
+            </p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20garantir%20meu%20site%20+%20página%20bônus" 
+               class="bg-gold hover:bg-gold/90 text-dark font-bold py-5 px-12 rounded-full text-lg inline-block transition-colors">
+                <i class="fas fa-gift mr-2"></i> QUERO GARANTIR MEU SITE + BÔNUS
+            </a>
+            <p class="mt-6 text-sm opacity-80">
+                Oferta especial por tempo limitado • Domínio e hospedagem inclusos por 1 ano
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Sites Lash & Nails</h3>
+                    <p class="text-gray-400">
+                        Soluções digitais exclusivas para profissionais de beleza que querem se destacar no mercado.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#models" class="text-gray-400 hover:text-white transition-colors">Modelos</a></li>
+                        <li><a href="#bonus" class="text-gray-400 hover:text-white transition-colors">Bônus</a></li>
+                        <li><a href="#included" class="text-gray-400 hover:text-white transition-colors">O que está incluso</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-3"></i> (11) 99999-9999
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3"></i> contato@siteslashnails.com
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 Sites Lash & Nails. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
