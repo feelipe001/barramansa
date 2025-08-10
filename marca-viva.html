@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marca Viva - Viva a sua marca no Instagram</title>
+  <meta name="description" content="Transforme suas dificuldades em conteúdo orgânico no Instagram. Compartilhe seus desafios e receba soluções práticas." />
+  <meta property="og:title" content="Marca Viva - Viva a sua marca no Instagram" />
+  <meta property="og:description" content="Transforme suas dificuldades em conteúdo orgânico no Instagram." />
+  <meta property="og:type" content="website" />
+  <!-- Tailwind via CDN (utilities only) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0EA5E9',
+            secondary: '#22C55E',
+            darkbg: '#0B1220',
+            dark2: '#111827',
+            light1: '#F3F4F6',
+            light2: '#FFFFFF'
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            card: '20px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* =========================
+       FIXES: dark mode + buttons
+       ========================= */
+    :root{
+      --bg: #F3F4F6;
+      --bg-accent: #FFFFFF;
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --shadow: 0 4px 20px rgba(0,0,0,.05);
+      --shadow-strong: 0 8px 30px rgba(0,0,0,.12);
+      --primary: #0EA5E9;
+      --primary-600: #0284C7;
+      --secondary: #22C55E;
+      --secondary-600: #16A34A;
+    }
+    .dark{
+      --bg: #0B1220;
+      --bg-accent: #111827;
+      --text: #F3F4F6;
+      --muted: #D1D5DB;
+      --border: #374151;
+      --shadow: 0 4px 20px rgba(0,0,0,.3);
+      --shadow-strong: 0 8px 30px rgba(0,0,0,.45);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family: 'Inter',sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background-color .2s ease, color .2s ease;
+    }
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:700}
+    /* Card */
+    .card{
+      background: var(--bg-accent);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .card-hover:hover{transform: translateY(-2px); box-shadow: var(--shadow-strong);}
+    /* Inputs */
+    .input-field{
+      width:100%;
+      padding:.75rem 1rem;
+      border-radius:20px;
+      border:1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+    }
+    .input-field:focus{border-color: var(--primary); box-shadow: 0 0 0 3px rgba(14,165,233,.25)}
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:9999px;
+      padding:.75rem 1.25rem;
+      font-weight:500;
+      gap:.5rem;
+      transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      user-select:none;
+      -webkit-user-select:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: var(--primary);
+      color:#fff;
+      box-shadow: 0 6px 18px rgba(14,165,233,.25);
+      border:1px solid transparent;
+    }
+    .btn-primary:hover{background:#38BDF8}
+    .btn-primary:active{background: var(--primary-600)}
+    .btn-outline{
+      background: transparent;
+      border:1.5px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-outline:hover{background: var(--primary); color:#fff}
+    .btn-secondary{
+      background: var(--secondary);
+      color:#fff;
+      border:1px solid transparent;
+      box-shadow: 0 6px 18px rgba(34,197,94,.25);
+    }
+    .btn-secondary:hover{background:#34D399}
+    .btn-secondary:active{background: var(--secondary-600)}
+    /* Progress */
+    .progress-bar{height:.5rem; border-radius:9999px; background: rgba(107,114,128,.25); overflow:hidden}
+    .progress-fill{height:100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); width:0%; transition: width .5s ease}
+    /* Toast */
+    .toast{animation: slideIn .3s ease-out, fadeOut .5s ease-in 3s forwards;}
+    @keyframes slideIn{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes fadeOut{from{opacity:1}to{opacity:0}}
+    /* Accordion */
+    .accordion-content{max-height:0; overflow:hidden; transition:max-height .3s ease-out}
+    .accordion-open{max-height:500px}
+    /* Utility fixes for dark nav transparency */
+    .backdrop-blur-md{backdrop-filter: blur(12px)}
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 border-b" style="background: color-mix(in srgb, var(--bg-accent) 80%, transparent); border-color: var(--border)">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <a href="#inicio" class="flex items-center">
+          <span class="text-2xl font-bold text-primary font-heading">Marca Viva</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+          <a href="#quem-somos" class="hover:text-primary transition-colors">Quem Somos</a>
+          <a href="#como-ajudamos" class="hover:text-primary transition-colors">Como Ajudamos</a>
+          <a href="#formulario" class="hover:text-primary transition-colors">Formulário</a>
+          <a href="#duvidas" class="hover:text-primary transition-colors">Dúvidas</a>
+          <a href="#formulario" class="btn btn-primary">Responder agora</a>
+          <button id="theme-toggle" class="p-2 rounded-full border" style="border-color:var(--border)">
+            <svg id="theme-icon-light" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z"></path></svg>
+          </button>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-full border" style="border-color:var(--border)">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+        <div class="flex flex-col gap-3">
+          <a href="#inicio" class="hover:text-primary">Início</a>
+          <a href="#quem-somos" class="hover:text-primary">Quem Somos</a>
+          <a href="#como-ajudamos" class="hover:text-primary">Como Ajudamos</a>
+          <a href="#formulario" class="hover:text-primary">Formulário</a>
+          <a href="#duvidas" class="hover:text-primary">Dúvidas</a>
+          <a href="#formulario" class="btn btn-primary w-full">Responder agora</a>
+          <div class="flex items-center justify-between pt-2">
+            <span>Tema:</span>
+            <button id="mobile-theme-toggle" class="p-2 rounded-full border" style="border-color:var(--border)">
+              <svg id="mobile-theme-icon-light" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+              <svg id="mobile-theme-icon-dark" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="inicio" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Empreender no Instagram é desafiador. Me conta o que mais te trava?</h1>
+          <p class="text-lg mb-8" style="color:var(--muted)">Suas respostas guiam conteúdos e soluções práticas — 100% orgânico.</p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="#formulario" class="btn btn-primary">Responder agora</a>
+            <a href="#quem-somos" class="btn btn-outline">Conheça a Marca Viva</a>
+          </div>
+          <div class="inline-flex items-center px-4 py-2 rounded-full" style="background: color-mix(in srgb, var(--primary) 15%, transparent); color:#0B4D66">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+            <span class="text-sm font-medium">Sem anúncios, só estratégia e execução.</span>
+          </div>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0">
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+               alt="Pessoas criando conteúdo para Instagram"
+               class="w-full h-auto rounded-[20px] shadow-[var(--shadow-strong)] object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quem Somos -->
+  <section id="quem-somos" class="py-16" style="background:var(--bg)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <div class="lg:w-1/2">
+          <div class="card overflow-hidden">
+            <div id="image-upload-container" class="relative">
+              <img id="agency-image"
+                   src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                   alt="Fachada da agência Marca Viva"
+                   class="w-full aspect-video object-cover rounded-t-[20px]" loading="lazy">
+              <div class="absolute bottom-0 left-0 right-0 p-4" style="background: linear-gradient(0deg, rgba(0,0,0,.6), transparent)">
+                <p class="text-white text-sm">Nossa sede (projeto)</p>
+              </div>
+            </div>
+            <div class="p-4 space-y-4">
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button id="change-image-btn" class="btn btn-outline flex-1">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+                  Trocar imagem
+                </button>
+                <input type="file" id="image-upload" accept="image/jpeg,image/png,image/webp" class="hidden">
+                <button id="paste-url-btn" class="btn btn-outline flex-1">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path></svg>
+                  Colar URL
+                </button>
+              </div>
+              <div id="url-input-container" class="hidden">
+                <input type="url" id="image-url" placeholder="Cole a URL da imagem aqui" class="input-field">
+                <button id="load-image-btn" class="btn btn-primary mt-2 w-full">Carregar Imagem</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-6">Quem somos</h2>
+          <div class="space-y-4" style="color:var(--text)">
+            <p style="color:var(--text)">Somos a Marca Viva, agência nascida no módulo Aprendiz de Sucesso com um propósito claro: transformar marcas locais em narrativas vivas.</p>
+            <p style="color:var(--text)">Nosso método: ouvir primeiro, prototipar rápido, testar no orgânico e otimizar com dados.</p>
+            <p style="color:var(--text)">Valores: clareza, consistência e resultado.</p>
+            <div class="mt-6">
+              <h3 class="font-medium mb-2">O que fazemos:</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start"><span class="mr-2 text-secondary">✔</span> Estratégia & posicionamento</li>
+                <li class="flex items-start"><span class="mr-2 text-secondary">✔</span> Roteiros de Reels e carrosséis</li>
+                <li class="flex items-start"><span class="mr-2 text-secondary">✔</span> Calendário editorial e rotina de produção</li>
+                <li class="flex items-start"><span class="mr-2 text-secondary">✔</span> Setup de métricas e análise simples</li>
+              </ul>
+            </div>
+            <div class="pt-2 text-sm" style="color:var(--muted)">
+              Parceiros estratégicos:
+              <a href="https://finanza.com.br" target="_blank" class="text-primary underline-offset-2 hover:underline">Finanza</a> e
+              <a href="https://guiabm.com" target="_blank" class="text-primary underline-offset-2 hover:underline">GuiaBM</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Ajudamos -->
+  <section id="como-ajudamos" class="py-16" style="background:var(--bg-accent)">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Como Ajudamos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card card-hover">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+               style="background: color-mix(in srgb, var(--primary) 15%, transparent)">
+            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.846v-4.87l1.69.723a1 1 0 00.787 0l4-1.714a1 1 0 11.788 1.838l-2.727 1.17 4.25 1.823a1 1 0 001.735-.949l-7-3a1 1 0 00-.787 0l-7 3a1 1 0 001.736.95z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Ideias que viram post</h3>
+          <p style="color:var(--muted)">Transformamos suas dores em roteiros prontos.</p>
+        </div>
+        <div class="card card-hover">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+               style="background: color-mix(in srgb, var(--primary) 15%, transparent)">
+            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Conteúdo que engaja</h3>
+          <p style="color:var(--muted)">Reels, carrosséis e stories com estratégia.</p>
+        </div>
+        <div class="card card-hover">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+               style="background: color-mix(in srgb, var(--primary) 15%, transparent)">
+            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Crescimento orgânico</h3>
+          <p style="color:var(--muted)">Sem tráfego pago: constância e clareza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section id="formulario" class="py-16" style="background:var(--bg)">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="card">
+        <div class="progress-bar mb-6"><div id="form-progress" class="progress-fill"></div></div>
+        <h2 class="text-2xl font-bold mb-6">Compartilhe seus desafios (leva menos de 1 minuto)</h2>
+        <form id="content-challenge-form" class="space-y-6">
+          <div>
+            <label for="dificuldade" class="block text-sm font-medium mb-2">Quando pensa em criar conteúdo, qual é a sua maior dificuldade?</label>
+            <textarea id="dificuldade" name="dificuldade" rows="3" class="input-field" required></textarea>
+            <p class="mt-1 text-sm text-red-600 hidden" id="dificuldade-error">Por favor, compartilhe sua maior dificuldade.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Você se sente mais travado(a) em:</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3"><input type="radio" name="travadoEm" value="Ter ideias de postagens"> <span>Ter ideias de postagens</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="travadoEm" value="Gravar vídeos"> <span>Gravar vídeos</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="travadoEm" value="Editar o conteúdo"> <span>Editar o conteúdo</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="travadoEm" value="Postar com frequência"> <span>Postar com frequência</span></label>
+            </div>
+            <p class="mt-1 text-sm text-red-600 hidden" id="travadoEm-error">Por favor, selecione uma opção.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Por que ainda não atingiu o resultado que deseja?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3"><input type="radio" name="motivo" value="Falta de tempo"> <span>Falta de tempo</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="motivo" value="Falta de conhecimento"> <span>Falta de conhecimento</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="motivo" value="Falta de engajamento"> <span>Falta de engajamento</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="motivo" value="Não sei vender pelo Instagram"> <span>Não sei vender pelo Instagram</span></label>
+            </div>
+            <p class="mt-1 text-sm text-red-600 hidden" id="motivo-error">Por favor, selecione uma opção.</p>
+          </div>
+          <div>
+            <label for="aprender" class="block text-sm font-medium mb-2">Se pudesse aprender algo agora para melhorar, o que seria?</label>
+            <textarea id="aprender" name="aprender" rows="2" class="input-field"></textarea>
+          </div>
+          <div>
+            <label for="nicho" class="block text-sm font-medium mb-2">Qual seu nicho/atividade?</label>
+            <input type="text" id="nicho" name="nicho" class="input-field" />
+          </div>
+          <div class="pt-2">
+            <button type="submit" id="submit-btn" class="btn btn-primary w-full">
+              <span id="submit-text">Enviar no WhatsApp</span>
+              <span id="submit-loading" class="hidden">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Enviando...
+              </span>
+            </button>
+            <p class="mt-2 text-sm text-center" style="color:var(--muted)">Ao enviar, você será direcionado ao WhatsApp para concluir.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="duvidas" class="py-16" style="background:var(--bg-accent)">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Dúvidas Frequentes</h2>
+      <div class="space-y-4">
+        <div class="card">
+          <button class="accordion-toggle w-full flex justify-between items-center text-left" aria-expanded="false" aria-controls="faq-1">
+            <span class="font-medium">Por que responder?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="faq-1" class="accordion-content mt-2"><div class="pt-2" style="color:var(--muted)">Suas respostas nos ajudam a criar conteúdos e soluções que realmente resolvem suas dores. Quanto mais sincero você for, mais personalizada será a ajuda que podemos oferecer.</div></div>
+        </div>
+        <div class="card">
+          <button class="accordion-toggle w-full flex justify-between items-center text-left" aria-expanded="false" aria-controls="faq-2">
+            <span class="font-medium">É grátis?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="faq-2" class="accordion-content mt-2"><div class="pt-2" style="color:var(--muted)">Sim! Esta é uma iniciativa totalmente gratuita para entender melhor as necessidades dos empreendedores no Instagram. Não cobramos nada pelas respostas e dicas que compartilhamos.</div></div>
+        </div>
+        <div class="card">
+          <button class="accordion-toggle w-full flex justify-between items-center text-left" aria-expanded="false" aria-controls="faq-3">
+            <span class="font-medium">Vou receber spam?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="faq-3" class="accordion-content mt-2"><div class="pt-2" style="color:var(--muted)">Não. Valorizamos seu tempo e privacidade. Você só receberá mensagens relevantes diretamente relacionadas às suas respostas e, se quiser, pode optar por não receber mais nada depois.</div></div>
+        </div>
+        <div class="card">
+          <button class="accordion-toggle w-full flex justify-between items-center text-left" aria-expanded="false" aria-controls="faq-4">
+            <span class="font-medium">Posso atualizar depois?</span>
+            <svg class="w-5 h-5 text-primary transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="faq-4" class="accordion-content mt-2"><div class="pt-2" style="color:var(--muted)">Claro! Se suas dificuldades mudarem ou você quiser adicionar mais informações, basta enviar um novo formulário ou nos avisar pelo WhatsApp.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8" style="background:var(--bg-accent)">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <a href="#inicio" class="flex items-center"><span class="text-xl font-bold text-primary font-heading">Marca Viva</span></a>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Feito por Marca Viva — Viva a sua marca.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:space-x-8 space-y-2 md:space-y-0 text-sm">
+          <a href="#inicio" class="hover:text-primary">Início</a>
+          <a href="#quem-somos" class="hover:text-primary">Quem Somos</a>
+          <a href="#como-ajudamos" class="hover:text-primary">Como Ajudamos</a>
+          <a href="#formulario" class="hover:text-primary">Formulário</a>
+          <a href="#duvidas" class="hover:text-primary">Dúvidas</a>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 text-center text-xs" style="color:var(--muted)">
+        <p>© 2025 Marca Viva. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-4 right-4 hidden">
+    <div class="toast px-6 py-4 rounded-[20px]" style="background:var(--bg-accent); box-shadow:var(--shadow); color:var(--text)">
+      <span>Quase lá! Confirme o envio no WhatsApp.</span>
+    </div>
+  </div>
+
+  <script>
+    // Número do WhatsApp
+    const WHATSAPP_NUMBER = "55SEU_NUMERO_AQUI";
+
+    // Dark/Light Mode Toggle (fix: keep text colors using CSS variables)
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const themeIconLight = document.getElementById('theme-icon-light');
+    const themeIconDark = document.getElementById('theme-icon-dark');
+    const mobileThemeIconLight = document.getElementById('mobile-theme-icon-light');
+    const mobileThemeIconDark = document.getElementById('mobile-theme-icon-dark');
+
+    function applyInitialTheme(){
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const stored = localStorage.getItem('color-theme');
+      const shouldDark = stored ? stored === 'dark' : prefersDark;
+      document.documentElement.classList.toggle('dark', shouldDark);
+      themeIconLight.classList.toggle('hidden', shouldDark);
+      themeIconDark.classList.toggle('hidden', !shouldDark);
+      if(mobileThemeIconLight && mobileThemeIconDark){
+        mobileThemeIconLight.classList.toggle('hidden', shouldDark);
+        mobileThemeIconDark.classList.toggle('hidden', !shouldDark);
+      }
+    }
+    applyInitialTheme();
+
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+      themeIconLight.classList.toggle('hidden', isDark);
+      themeIconDark.classList.toggle('hidden', !isDark);
+      if(mobileThemeIconLight && mobileThemeIconDark){
+        mobileThemeIconLight.classList.toggle('hidden', isDark);
+        mobileThemeIconDark.classList.toggle('hidden', !isDark);
+      }
+    }
+    themeToggle.addEventListener('click', toggleTheme);
+    if(mobileThemeToggle){ mobileThemeToggle.addEventListener('click', toggleTheme); }
+
+    // Mobile menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click',()=> mobileMenu.classList.toggle('hidden'));
+
+    // Image upload
+    const changeImageBtn = document.getElementById('change-image-btn');
+    const imageUpload = document.getElementById('image-upload');
+    const pasteUrlBtn = document.getElementById('paste-url-btn');
+    const urlInputContainer = document.getElementById('url-input-container');
+    const imageUrl = document.getElementById('image-url');
+    const loadImageBtn = document.getElementById('load-image-btn');
+    const agencyImage = document.getElementById('agency-image');
+
+    changeImageBtn.addEventListener('click', ()=> imageUpload.click());
+    imageUpload.addEventListener('change', e => {
+      if(e.target.files && e.target.files[0]){
+        const reader = new FileReader();
+        reader.onload = ev => { agencyImage.src = ev.target.result; };
+        reader.readAsDataURL(e.target.files[0]);
+        urlInputContainer.classList.add('hidden');
+      }
+    });
+    pasteUrlBtn.addEventListener('click', ()=> urlInputContainer.classList.toggle('hidden'));
+    loadImageBtn.addEventListener('click', ()=> { if(imageUrl.value) agencyImage.src = imageUrl.value; });
+
+    // Form logic
+    const form = document.getElementById('content-challenge-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const submitLoading = document.getElementById('submit-loading');
+    const formProgress = document.getElementById('form-progress');
+    const toast = document.getElementById('toast');
+
+    form.addEventListener('input', () => {
+      const required = [
+        document.getElementById('dificuldade').value.trim(),
+        document.querySelector('input[name="travadoEm"]:checked')?.value,
+        document.querySelector('input[name="motivo"]:checked')?.value
+      ];
+      const filled = required.filter(Boolean).length;
+      formProgress.style.width = (filled / 3) * 100 + '%';
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let isValid = true;
+      const dificuldade = document.getElementById('dificuldade').value.trim();
+      const travadoEm = document.querySelector('input[name="travadoEm"]:checked')?.value;
+      const motivo = document.querySelector('input[name="motivo"]:checked')?.value;
+
+      document.getElementById('dificuldade-error').classList.toggle('hidden', !!dificuldade);
+      document.getElementById('travadoEm-error').classList.toggle('hidden', !!travadoEm);
+      document.getElementById('motivo-error').classList.toggle('hidden', !!motivo);
+
+      if(!dificuldade || !travadoEm || !motivo){ isValid = false; }
+      if(!isValid){ form.classList.add('shake'); setTimeout(()=>form.classList.remove('shake'), 500); return; }
+
+      const aprender = document.getElementById('aprender').value.trim() || 'Não informado';
+      const nicho = document.getElementById('nicho').value.trim() || 'Não informado';
+
+      submitText.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+      submitBtn.disabled = true;
+
+      const mensagem =
+`Olá Felipe! Aqui estão minhas respostas sobre criação de conteúdo no Instagram:
+
+1️⃣ Maior dificuldade: ${dificuldade}
+2️⃣ Sinto travas em: ${travadoEm}
+3️⃣ Por que não atinjo o resultado: ${motivo}
+4️⃣ Quero aprender: ${aprender}
+5️⃣ Nicho/atividade: ${nicho}
+
+— Enviado via Marca Viva (orgânico)`;
+
+      const encoded = encodeURIComponent(mensagem);
+      setTimeout(()=>{
+        window.open(\`https://wa.me/\${WHATSAPP_NUMBER}?text=\${encoded}\`, '_blank');
+        toast.classList.remove('hidden');
+        setTimeout(()=>{
+          submitText.classList.remove('hidden');
+          submitLoading.classList.add('hidden');
+          submitBtn.disabled = false;
+          form.reset();
+          formProgress.style.width = '0%';
+        }, 1200);
+        setTimeout(()=> toast.classList.add('hidden'), 4200);
+      }, 400);
+    });
+
+    // Anchor smooth close mobile menu
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if(id && id !== '#'){
+          // close menu
+          if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        }
+      })
+    });
+  </script>
+</body>
+</html>
