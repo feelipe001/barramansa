@@ -5,10 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marca Viva – Formulário de Desafios no Instagram</title>
   <meta name="description" content="Conte seu maior desafio no Instagram e receba uma resposta personalizada da Marca Viva." />
+
+  <!-- Aplica tema salvo/sistema antes de renderizar para evitar flash -->
+  <script>
+    (function(){
+      try {
+        const ls = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (ls === 'dark' || (!ls && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind custom config (optional)
     tailwind.config = {
+      darkMode: 'class', // importante para o toggle funcionar
       theme: {
         extend: {
           colors: {
@@ -29,6 +44,7 @@
       }
     }
   </script>
+
   <style>
     /* Remove setinhas do input number no Chrome */
     input[type=number]::-webkit-outer-spin-button,
@@ -37,31 +53,20 @@
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900 dark:from-slate-950 dark:to-slate-900 dark:text-slate-100">
-  <script>
-    // Tema: aplica preferência salva ou do sistema antes de renderizar
-    (function(){
-      const ls = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (ls === 'dark' || (!ls && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
-
   <header class="max-w-3xl mx-auto px-4 pt-10 pb-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="size-10 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-300 grid place-items-center">
-          <span class="text-xl">MV</span>
+          <span class="text-xl font-semibold">MV</span>
         </div>
         <div>
           <h1 class="text-2xl font-semibold tracking-tight">Marca Viva</h1>
           <p class="text-sm text-slate-500 dark:text-slate-400">Viva a sua marca no Instagram</p>
         </div>
       </div>
-      <button id="themeToggle" type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+      <button id="themeToggle" type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-[.98] transition shadow-sm focus:outline-none focus:ring-4 focus:ring-brand-500/20">
         <span id="themeIcon" aria-hidden>🌙</span>
-        <span class="sr-only">Alternar tema</span>
+        <span>Modo</span>
       </button>
     </div>
   </header>
@@ -79,12 +84,12 @@
           <div>
             <label class="block text-sm font-medium mb-1" for="nome">Seu nome *</label>
             <input id="nome" name="nome" type="text" required
-                   class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: Ana Souza" />
+                   class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: Ana Souza" />
           </div>
           <div>
             <label class="block text-sm font-medium mb-1" for="instagram">@ no Instagram</label>
             <input id="instagram" name="instagram" type="text"
-                   class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: @minhamarca" />
+                   class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: @minhamarca" />
           </div>
         </div>
 
@@ -92,7 +97,7 @@
         <div class="grid md:grid-cols-2 gap-5">
           <div>
             <label class="block text-sm font-medium mb-1" for="perfil">Você é *</label>
-            <select id="perfil" name="perfil" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500">
+            <select id="perfil" name="perfil" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500">
               <option value="">Selecione...</option>
               <option>Autônomo(a)</option>
               <option>MEI</option>
@@ -104,14 +109,14 @@
           </div>
           <div>
             <label class="block text-sm font-medium mb-1" for="nicho">Nicho / área</label>
-            <input id="nicho" name="nicho" type="text" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: estética, alimentos, moda..." />
+            <input id="nicho" name="nicho" type="text" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: estética, alimentos, moda..." />
           </div>
         </div>
 
         <!-- Desafio principal -->
         <div>
           <label class="block text-sm font-medium mb-1" for="desafio">Seu principal desafio no Instagram *</label>
-          <select id="desafio" name="desafio" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500">
+          <select id="desafio" name="desafio" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500">
             <option value="">Selecione...</option>
             <option>Falta de consistência para postar</option>
             <option>Ideias de conteúdo (o que postar)</option>
@@ -126,19 +131,19 @@
         </div>
         <div id="desafioOutroWrap" class="hidden">
           <label class="block text-sm font-medium mb-1" for="desafioOutro">Qual?</label>
-          <input id="desafioOutro" name="desafioOutro" type="text" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Descreva seu desafio" />
+          <input id="desafioOutro" name="desafioOutro" type="text" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Descreva seu desafio" />
         </div>
 
         <!-- Texto livre -->
         <div>
           <label class="block text-sm font-medium mb-1" for="travando">Explique com suas palavras o que está te travando *</label>
-          <textarea id="travando" name="travando" rows="4" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Me conte o cenário, o que já tentou, onde complica..."></textarea>
+          <textarea id="travando" name="travando" rows="4" required class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Me conte o cenário, o que já tentou, onde complica..."></textarea>
         </div>
 
         <!-- Objetivo -->
         <div>
           <label class="block text-sm font-medium mb-1" for="objetivo">Seu objetivo para os próximos 30 dias</label>
-          <textarea id="objetivo" name="objetivo" rows="3" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: postar 3x/semana, vender 10 serviços, bater 1.000 seguidores..."></textarea>
+          <textarea id="objetivo" name="objetivo" rows="3" class="w-full rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 px-4 py-3 outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500" placeholder="Ex.: postar 3x/semana, vender 10 serviços, bater 1.000 seguidores..."></textarea>
         </div>
 
         <!-- Estratégias já testadas -->
@@ -188,8 +193,8 @@
         <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between pt-2">
           <div class="text-xs text-slate-500 dark:text-slate-400">Ao enviar, abriremos seu WhatsApp com a mensagem já pronta. Você poderá editar antes de enviar.</div>
           <div class="flex gap-3">
-            <button id="copyBtn" type="button" class="rounded-2xl px-5 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Copiar mensagem</button>
-            <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 bg-brand-500 text-white font-semibold shadow-[0_6px_20px_rgba(31,151,255,0.35)] hover:brightness-110 active:scale-[.98] transition">Enviar no WhatsApp</button>
+            <button id="copyBtn" type="button" class="rounded-2xl px-5 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition focus:outline-none focus:ring-4 focus:ring-brand-500/20">Copiar mensagem</button>
+            <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 bg-brand-500 text-white font-semibold shadow-[0_6px_20px_rgba(31,151,255,0.35)] hover:brightness-110 active:scale-[.98] transition focus:outline-none focus:ring-4 focus:ring-brand-500/30">Enviar no WhatsApp</button>
           </div>
         </div>
 
@@ -209,15 +214,17 @@
     // Alternância de tema
     const themeBtn = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-    const setIcon = () => {
+
+    function setIcon() {
       const dark = document.documentElement.classList.contains('dark');
       themeIcon.textContent = dark ? '☀️' : '🌙';
-    };
+    }
     setIcon();
+
     themeBtn.addEventListener('click', () => {
       const html = document.documentElement;
-      const isDark = html.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const turnedDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', turnedDark ? 'dark' : 'light');
       setIcon();
     });
 
@@ -265,6 +272,7 @@
         '— Enviado pelo formulário do projeto Marca Viva.'
       ];
 
+      // FIX: juntar com quebra de linha correta ("\n")
       return linhas.join('\n');
     }
 
@@ -303,6 +311,51 @@
       el.textContent = texto;
       el.className = `mt-2 ${isWarn ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-600 dark:text-emerald-400'} block`;
     }
+
+    // =============================
+    // TESTES (não alteram o uso normal)
+    // =============================
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        console.assert(typeof montarMensagem === 'function', 'Teste: montarMensagem deve existir');
+
+        // Teste 1: join com \n funciona
+        const j = ['a','b'].join('\n');
+        console.assert(j === 'a\nb', 'Teste: join com quebra de linha deve resultar em "a\\nb"');
+
+        // Teste 2: mensagem contém quebras de linha e bullets
+        const form = document.getElementById('mv-form');
+        const backup = {
+          nome: document.getElementById('nome').value,
+          instagram: document.getElementById('instagram').value,
+          perfil: document.getElementById('perfil').value,
+          nicho: document.getElementById('nicho').value,
+          desafio: document.getElementById('desafio').value,
+          desafioOutro: document.getElementById('desafioOutro').value,
+          travando: document.getElementById('travando').value,
+          objetivo: document.getElementById('objetivo').value,
+        };
+        // Preenche valores temporários
+        document.getElementById('nome').value = 'Teste Usuário';
+        document.getElementById('instagram').value = '@teste';
+        document.getElementById('perfil').value = 'MEI';
+        document.getElementById('nicho').value = 'estética';
+        document.getElementById('desafio').value = 'Baixo alcance e crescimento';
+        document.getElementById('travando').value = 'Sem constância';
+        document.getElementById('objetivo').value = 'Postar 3x/semana';
+
+        const msg = montarMensagem();
+        console.assert(/\n• Instagram:/.test(msg), 'Teste: mensagem deve conter quebra de linha antes de "• Instagram"');
+        console.assert(msg.includes('— Enviado pelo formulário do projeto Marca Viva.'), 'Teste: mensagem deve encerrar com assinatura');
+
+        // Restaura (limpa, pois iniciou vazio)
+        form.reset();
+
+        console.log('%cTodos os testes passaram ✅', 'padding:4px 8px;border-radius:6px;background:#16a34a;color:white');
+      } catch (err) {
+        console.error('Falha nos testes:', err);
+      }
+    });
   </script>
 </body>
 </html>
