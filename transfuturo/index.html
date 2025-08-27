@@ -17,25 +17,38 @@
       padding: 60px 20px;
       background: linear-gradient(180deg, #0c0c0c 0%, #1a1a1a 100%);
     }
-    header img {
-      max-width: 700px;
+    header picture img {
       width: 100%;
+      max-width: 700px;
       border-radius: 12px;
       margin-bottom: 20px;
     }
     header h1 {
       font-size: 2.5rem;
-      margin: 20px 0;
+      margin: 10px 0;
       color: #fcee09;
     }
-    header p {
-      font-size: 1.2rem;
+    .copy {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .copy span {
+      display: block;
+      font-weight: 400;
       color: #ddd;
+      font-size: 0.95rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #bbb;
+      margin: 15px 0;
     }
     .cta-btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 15px 40px;
+      padding: 12px 32px;
       background: #fcee09;
       color: #000;
       font-weight: bold;
@@ -53,20 +66,23 @@
       max-width: 500px;
       margin: 40px auto;
       display: grid;
-      gap: 14px;
+      gap: 12px;
+      padding: 0 16px;
     }
     .link-btn {
       display: block;
-      background: #1a73e8;
-      color: #fff;
-      padding: 14px;
-      border-radius: 10px;
+      background: #000;                
+      border: 2px solid #fcee09;       
+      color: #fcee09;                  
+      padding: 10px;                   
+      border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
+      font-size: 0.95rem;              
       transition: 0.3s;
     }
     .link-btn:hover {
-      background: #0f5dc9;
+      background: #111;                
       transform: translateY(-2px);
     }
 
@@ -77,15 +93,33 @@
       font-size: 0.9rem;
       color: #bbb;
     }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
   <header>
-    <!-- Substituir pelo arquivo da imagem -->
-    <img src="transfuturo/capa.jpg" alt="Iveco S-Way Metalica">
+    <!-- Usa imagem diferente para mobile e desktop -->
+    <picture>
+      <source srcset="transfuturo/capa-mobile.jpg" media="(max-width: 768px)">
+      <img src="transfuturo/capa-desktop.jpg" alt="Iveco S-Way Metallica">
+    </picture>
+
     <h1>Iveco S-Way Metallica</h1>
+    <div class="copy">
+      Transfuturo Veículos
+      <span>O maior grupo Iveco do Estado do Rio de Janeiro</span>
+    </div>
     <p>Exclusividade, potência e atitude na estrada.</p>
     <a href="https://wa.me/seunumerowhatsapp" class="cta-btn">Quero Reservar Agora</a>
   </header>
