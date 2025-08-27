@@ -9,29 +9,49 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #0c0c0c;
+      background-color: #0c0c0c;
       color: #fff;
       text-align: center;
     }
     header {
-      padding: 40px 20px;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #0c0c0c 0%, #1a1a1a 100%);
     }
     header img {
-      max-width: 300px;
+      max-width: 700px;
+      width: 100%;
+      border-radius: 12px;
       margin-bottom: 20px;
     }
     header h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin: 20px 0;
       color: #fcee09;
-      margin-bottom: 10px;
     }
     header p {
-      font-size: 1rem;
-      color: #bbb;
+      font-size: 1.2rem;
+      color: #ddd;
     }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 40px;
+      background: #fcee09;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta-btn:hover {
+      background: #ffea00;
+      transform: scale(1.05);
+    }
+
+    /* Botões */
     .links {
       max-width: 500px;
-      margin: 30px auto;
+      margin: 40px auto;
       display: grid;
       gap: 14px;
     }
@@ -49,25 +69,29 @@
       background: #0f5dc9;
       transform: translateY(-2px);
     }
+
     footer {
-      margin: 40px 0 20px;
-      font-size: 0.8rem;
-      color: #666;
+      padding: 40px 20px;
+      background: #111;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <header>
-    <!-- Substituir por vídeo/360 ou imagem principal -->
-    <img src="metallica-caminhao.png" alt="Iveco S-Way Metallica">
+    <!-- Substituir pelo arquivo da imagem -->
+    <img src="caminhao-metallica.jpg" alt="Iveco S-Way Metallica">
     <h1>Iveco S-Way Metallica</h1>
-    <p>Exclusividade Iveco no maior grupo do Rio de Janeiro</p>
+    <p>Exclusividade, potência e atitude na estrada.</p>
+    <a href="https://wa.me/seunumerowhatsapp" class="cta-btn">Quero Reservar Agora</a>
   </header>
 
-  <!-- Botões -->
-  <div class="links">
+  <!-- BOTÕES -->
+  <section class="links">
     <a href="#" class="link-btn">Peças</a>
     <a href="#" class="link-btn">Site</a>
     <a href="#" class="link-btn">E-Commerce</a>
@@ -80,11 +104,11 @@
     <a href="#" class="link-btn">Transfuturo Nova Iguaçu</a>
     <a href="#" class="link-btn">Transfuturo Barra da Tijuca</a>
     <a href="#" class="link-btn">Tudo sobre o S-WAY</a>
-  </div>
+  </section>
 
-  <!-- Rodapé -->
+  <!-- FOOTER -->
   <footer>
-    © 2025 Transfuturo Veículos. Todos os direitos reservados.
+    <p>© 2025 Transfuturo Veículos. Todos os direitos reservados.</p>
   </footer>
 
 </body>
