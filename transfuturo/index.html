@@ -1,156 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Iveco S-Way Metallica | Transfuturo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0c0c0c;
-      color: #fff;
+    :root{
+      --bg:#0b0b0e; --bg2:#121218; --card:#171722; --text:#EDEDED; --muted:#b8b8c2;
+      --brand:#FCEE09; --brand-2:#A7FF04; --ring:rgba(252,238,9,.35);
+      --btn:#1B4F72; --btn2:#165A92;
     }
-    header {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(180deg, #0c0c0c 0%, #1a1a1a 100%);
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Montserrat',sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+
+    /* HERO */
+    header{padding:48px 20px 24px; text-align:center}
+    .hero-media{
+      width:min(980px,94vw); margin:0 auto 20px; border-radius:16px; overflow:hidden;
+      box-shadow:0 10px 60px rgba(0,0,0,.5), 0 0 0 2px var(--ring) inset;
+      background:#000;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 20px 0;
-      color: #fcee09;
+    .hero-media video,.hero-media img{width:100%;height:auto;display:block}
+    .title{font-size:clamp(26px,3.4vw,46px);margin:10px 0 6px;font-weight:800;letter-spacing:.2px;color:var(--brand)}
+    .subtitle{color:var(--muted);font-size:clamp(14px,1.6vw,18px)}
+    .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+    .cta{background:var(--brand);color:#000;font-weight:800;padding:14px 22px;border-radius:999px;transition:.2s}
+    .cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .cta-outline{border:1.5px solid var(--brand);padding:13px 20px;border-radius:999px;color:var(--brand)}
+    .badge{margin-top:8px;font-size:12px;color:var(--muted)}
+
+    /* QUICK LINKS (mantendo os botões) */
+    .links-wrap{max-width:860px;margin:26px auto 10px;padding:0 16px}
+    .links-title{font-weight:800;font-size:18px;margin:8px 0 12px;color:#dfe6ff}
+    .links{display:grid;gap:12px}
+    .link-btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      background:linear-gradient(180deg,var(--btn) 0%, var(--btn2) 100%);
+      padding:16px;border-radius:14px;font-weight:700;box-shadow:0 10px 30px rgba(15,50,100,.25);
+      border:1px solid rgba(255,255,255,.08);transition:.18s; text-transform:capitalize;
     }
-    header p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-    .cta-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 40px;
-      background: #fcee09;
-      color: #000;
-      font-weight: bold;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .cta-btn:hover {
-      background: #ffea00;
-      transform: scale(1.05);
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 60px 20px;
-      background: #111;
-    }
-    .card {
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      background: #222;
-    }
-    .gallery {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .gallery img {
-      width: 300px;
-      margin: 10px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .offer {
-      background: #fcee09;
-      color: #000;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .offer h2 {
-      margin-bottom: 20px;
-    }
-    .offer a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 40px;
-      background: #000;
-      color: #fcee09;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .offer a:hover {
-      background: #333;
-    }
-    footer {
-      padding: 40px 20px;
-      background: #111;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #bbb;
-    }
+    .link-btn:hover{transform:translateY(-2px); box-shadow:0 14px 38px rgba(15,50,100,.35)}
+    .link-btn small{opacity:.8;font-weight:600}
+
+    /* FEATURES */
+    .features{max-width:1100px;margin:34px auto;padding:0 16px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.06);transition:.2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(0,0,0,.35)}
+    .card h3{margin:4px 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* GALLERY */
+    .gallery{max-width:1100px;margin:12px auto 48px;padding:0 16px;text-align:center}
+    .gallery h2{margin:8px 0 18px}
+    .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .grid img{width:100%;border-radius:12px;display:block;border:1px solid rgba(255,255,255,.08);transition:.2s}
+    .grid img:hover{transform:scale(1.02)}
+
+    /* OFFER */
+    .offer{background:linear-gradient(180deg,rgba(252,238,9,.08),rgba(252,238,9,.02));border-top:1px solid rgba(252,238,9,.2);padding:38px 16px;text-align:center}
+    .offer h2{color:var(--brand);margin:0 0 10px}
+    .offer p{color:#e9e9e9;margin:0 0 14px}
+    .offer .cta{background:var(--brand);color:#000}
+
+    /* FOOTER */
+    footer{padding:26px 16px;text-align:center;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
+  <!-- HERO com vídeo/360º -->
   <header>
-    <!-- Aqui entra o vídeo/3D do caminhão -->
-    <video autoplay muted loop playsinline width="100%" style="max-width:700px; border-radius:12px;">
-      <source src="video-caminhao.mp4" type="video/mp4">
-    </video>
-    <h1>Iveco S-Way Metallica</h1>
-    <p>Exclusividade, potência e atitude na estrada.</p>
-    <a href="https://wa.me/seunumerowhatsapp" class="cta-btn">Quero Reservar Agora</a>
+    <div class="hero-media">
+      <!-- troque pelo seu vídeo 360 ou um poster .jpg -->
+      <video autoplay muted loop playsinline poster="poster.jpg">
+        <source src="iveco-360.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="title">Iveco S-Way Metallica</div>
+    <div class="subtitle">Exclusividade, potência e atitude — pelo maior grupo Iveco do RJ</div>
+    <div class="cta-row">
+      <a class="cta" href="https://wa.me/5524SEUNUMERO?text=Tenho%20interesse%20no%20Iveco%20S-Way%20Metallica">Quero reservar agora</a>
+      <a class="cta-outline" href="#detalhes">Ver detalhes técnicos</a>
+    </div>
+    <div class="badge">Poucas unidades • Atendimento prioritário Transfuturo</div>
   </header>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="card"><h3>⚡ Design Exclusivo</h3><p>Pintura oficial Metallica, única no Brasil.</p></div>
-    <div class="card"><h3>🚛 Potência Iveco</h3><p>Motor Euro 6, robusto e eficiente.</p></div>
-    <div class="card"><h3>🖥️ Tecnologia de Ponta</h3><p>Cabine inteligente, conectividade total.</p></div>
-    <div class="card"><h3>🔒 Edição Limitada</h3><p>Poucas unidades disponíveis.</p></div>
+  <!-- BLOCO DE BOTÕES (mantidos e valorizados) -->
+  <section class="links-wrap" id="links">
+    <div class="links-title">Acesso rápido</div>
+    <div class="links">
+      <!-- troque os href pelos seus URLs -->
+      <a class="link-btn" href="https://seu-link-de-pecas.com" target="_blank">🔧 Peças <small>originais Iveco</small></a>
+      <a class="link-btn" href="https://site-institucional.com" target="_blank">🌐 Site <small>institucional</small></a>
+      <a class="link-btn" href="https://ecommerce-transfuturo.com" target="_blank">🛒 E-commerce <small>compre online</small></a>
+      <a class="link-btn" href="tel:+55XXXXXXXXXXX">📞 Telefone <small>falar com consultor</small></a>
+      <a class="link-btn" href="mailto:vendas@transfuturo.com.br">✉️ E-mail <small>vendas</small></a>
+      <a class="link-btn" href="https://wa.me/5524SEUNUMERO?text=Quero%20falar%20com%20um%20consultor">💬 WhatsApp <small>resposta rápida</small></a>
+    </div>
+  </section>
+
+  <!-- FEATURES / PROVAS -->
+  <section class="features" id="detalhes">
+    <div class="card"><h3>⚡ Design Exclusivo</h3><p>Pintura oficial Metallica com detalhes neon e assinatura limitada.</p></div>
+    <div class="card"><h3>🧠 Cabine Inteligente</h3><p>Conectividade, ergonomia premium e segurança ativa.</p></div>
+    <div class="card"><h3>🚛 Potência Euro 6</h3><p>Performance e eficiência com baixas emissões.</p></div>
+    <div class="card"><h3>🔒 Edição Limitada</h3><p>Disponibilidade restrita — oportunidade única de aquisição.</p></div>
   </section>
 
   <!-- GALERIA -->
   <section class="gallery">
-    <h2>Conheça em detalhes</h2>
-    <img src="img1.jpg" alt="Iveco Metallica frente">
-    <img src="img2.jpg" alt="Iveco Metallica lateral">
-    <img src="img3.jpg" alt="Iveco Metallica interior">
+    <h2>Veja mais ângulos</h2>
+    <div class="grid">
+      <img src="img1.jpg" alt="Frente Iveco S-Way Metallica">
+      <img src="img2.jpg" alt="Lateral Iveco S-Way Metallica">
+      <img src="img3.jpg" alt="Detalhe roda e grafismo">
+      <img src="img4.jpg" alt="Interior da cabine">
+    </div>
   </section>
 
   <!-- OFERTA -->
   <section class="offer">
-    <h2>Garanta já o seu Iveco S-Way Metallica</h2>
-    <p>Entre em contato agora mesmo e descubra as condições especiais com a Transfuturo.</p>
-    <a href="https://wa.me/seunumerowhatsapp">Falar no WhatsApp</a>
+    <h2>Condições especiais Transfuturo</h2>
+    <p>Atendimento consultivo, avaliação do seu usado e planos de financiamento personalizados.</p>
+    <div class="cta-row">
+      <a class="cta" href="https://wa.me/5524SEUNUMERO?text=Quero%20proposta%20do%20S-Way%20Metallica">Solicitar proposta no WhatsApp</a>
+      <a class="cta-outline" href="#links">Ver outros canais</a>
+    </div>
   </section>
 
-  <!-- SOBRE -->
-  <section style="padding:60px 20px; text-align:center;">
-    <h2>Sobre a Transfuturo</h2>
-    <p>O maior grupo Iveco do Estado do Rio de Janeiro, referência em vendas e suporte técnico.</p>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Transfuturo Veículos. Todos os direitos reservados.</p>
-    <p>Peças | E-commerce | Site Oficial</p>
+    © 2025 Transfuturo Veículos — Iveco. Todos os direitos reservados. • CNPJ/Endereço • Política de Privacidade
   </footer>
-
 </body>
 </html>
