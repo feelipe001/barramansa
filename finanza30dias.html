@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanza (Beta) - Acesso por 30 dias</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+    .shimmer-border {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-border::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+      background-size: 200% 100%;
+      border-radius: inherit;
+      animation: shimmer 3s infinite linear;
+      z-index: -1;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="bg-[#0B0B0F] text-gray-100 font-['Inter'] min-h-screen">
+  <!-- Navbar -->
+  <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <h1 class="text-2xl font-bold font-['Sora'] bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Finanza <span class="text-xs bg-blue-900/50 text-blue-300 px-2 py-1 rounded-full">Beta</span></h1>
+    </div>
+    <div class="bg-green-900/30 text-green-400 text-xs px-3 py-1 rounded-full border border-green-800/50">
+      Acesso 30 dias
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 py-12 md:py-20">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-3xl md:text-4xl font-bold font-['Sora'] mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+        Acesso Finanza por 30 dias — Aprendiz de Sucesso
+      </h1>
+      <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        Preencha o formulário para liberar seu teste, e diga como o Finanza vai te ajudar no dia a dia.
+      </p>
+      
+      <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
+        <div class="flex items-center space-x-2 text-blue-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>Controle de gastos sem dor de cabeça</span>
+        </div>
+        <div class="flex items-center space-x-2 text-blue-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>Metas claras e acompanhamento</span>
+        </div>
+        <div class="flex items-center space-x-2 text-blue-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>Visão de caixa simples</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="container mx-auto px-4 pb-20">
+    <div class="max-w-2xl mx-auto">
+      <div class="glass-card rounded-2xl p-6 md:p-8 border border-white/10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-blue-900/0 pointer-events-none"></div>
+        
+        <form id="leadForm" class="space-y-6 relative">
+          <h2 class="text-2xl font-bold font-['Sora'] mb-6 text-center">Formulário de Acesso</h2>
+          
+          <!-- Name Field -->
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1">Nome completo *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Seu nome completo" 
+              required
+              minlength="3"
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            >
+            <p class="text-red-400 text-xs mt-1 hidden" id="nameError">Por favor, insira seu nome completo (mínimo 3 caracteres)</p>
+          </div>
+          
+          <!-- WhatsApp Field -->
+          <div>
+            <label for="whatsapp" class="block text-sm font-medium mb-1">WhatsApp *</label>
+            <input 
+              type="tel" 
+              id="whatsapp" 
+              name="whatsapp" 
+              placeholder="(24) 99999-9999" 
+              required
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            >
+            <p class="text-red-400 text-xs mt-1 hidden" id="whatsappError">Por favor, insira um número de WhatsApp válido</p>
+          </div>
+          
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">E-mail *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="voce@email.com" 
+              required
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            >
+            <p class="text-red-400 text-xs mt-1 hidden" id="emailError">Por favor, insira um e-mail válido</p>
+          </div>
+          
+          <!-- Primary Objective -->
+          <div>
+            <label for="objective" class="block text-sm font-medium mb-1">Qual seu objetivo principal com o Finanza? *</label>
+            <select 
+              id="objective" 
+              name="objective" 
+              required
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
+            >
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="Organizar gastos do dia a dia">Organizar gastos do dia a dia</option>
+              <option value="Sair do vermelho">Sair do vermelho</option>
+              <option value="Juntar dinheiro para um objetivo">Juntar dinheiro para um objetivo</option>
+              <option value="Controlar entradas/saídas do meu negócio">Controlar entradas/saídas do meu negócio</option>
+              <option value="Criar rotina financeira">Criar rotina financeira</option>
+            </select>
+            <p class="text-red-400 text-xs mt-1 hidden" id="objectiveError">Por favor, selecione um objetivo</p>
+          </div>
+          
+          <!-- How Finanza Should Help (Checkboxes) -->
+          <div>
+            <label class="block text-sm font-medium mb-2">Como o Finanza deve te ajudar? *</label>
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <input type="checkbox" id="help1" name="helps" value="Alertas de vencimento" class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500">
+                <label for="help1" class="ml-2 text-sm">Alertas de vencimento</label>
+              </div>
+              <div class="flex items-center">
+                <input type="checkbox" id="help2" name="helps" value="Categorias automáticas de gastos" class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500">
+                <label for="help2" class="ml-2 text-sm">Categorias automáticas de gastos</label>
+              </div>
+              <div class="flex items-center">
+                <input type="checkbox" id="help3" name="helps" value="Dashboard simples para decisões" class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500">
+                <label for="help3" class="ml-2 text-sm">Dashboard simples para decisões</label>
+              </div>
+              <div class="flex items-center">
+                <input type="checkbox" id="help4" name="helps" value="Metas mensais e progresso" class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500">
+                <label for="help4" class="ml-2 text-sm">Metas mensais e progresso</label>
+              </div>
+              <div class="flex items-center">
+                <input type="checkbox" id="help5" name="helps" value="Exportar/compartilhar relatórios" class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500">
+                <label for="help5" class="ml-2 text-sm">Exportar/compartilhar relatórios</label>
+              </div>
+            </div>
+            <p class="text-red-400 text-xs mt-1 hidden" id="helpsError">Por favor, selecione pelo menos uma opção</p>
+          </div>
+          
+          <!-- Current Tools -->
+          <div>
+            <label for="tools" class="block text-sm font-medium mb-1">Ferramentas que você já usa (se houver)</label>
+            <input 
+              type="text" 
+              id="tools" 
+              name="tools" 
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            >
+          </div>
+          
+          <!-- 30-day Goal -->
+          <div>
+            <label for="goal" class="block text-sm font-medium mb-1">Meta financeira para 30 dias</label>
+            <select 
+              id="goal" 
+              name="goal" 
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition appearance-none"
+            >
+              <option value="Só organizar a casa" selected>Só organizar a casa</option>
+              <option value="Economizar R$ 100–300">Economizar R$ 100–300</option>
+              <option value="Economizar R$ 300–600">Economizar R$ 300–600</option>
+              <option value="Economizar R$ 600+">Economizar R$ 600+</option>
+            </select>
+          </div>
+          
+          <!-- Class/Teacher -->
+          <div>
+            <label for="class" class="block text-sm font-medium mb-1">Turma/Professor (opcional)</label>
+            <input 
+              type="text" 
+              id="class" 
+              name="class" 
+              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+            >
+          </div>
+          
+          <!-- LGPD Checkbox -->
+          <div class="pt-2">
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input 
+                  id="lgpd" 
+                  name="lgpd" 
+                  type="checkbox" 
+                  required
+                  class="h-4 w-4 text-blue-600 bg-white/5 border-white/10 rounded focus:ring-blue-500"
+                >
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="lgpd" class="font-medium">Aceite LGPD *</label>
+                <p class="text-gray-400">Autorizo o uso dos meus dados para cadastro de acesso ao Finanza por 30 dias e contato sobre o produto.</p>
+              </div>
+            </div>
+            <p class="text-red-400 text-xs mt-1 hidden" id="lgpdError">Você precisa aceitar os termos para continuar</p>
+          </div>
+          
+          <!-- Notice -->
+          <div class="bg-blue-900/20 border border-blue-800/50 rounded-lg p-4 text-sm text-blue-200">
+            <p>O acesso de 30 dias conta a partir da liberação. Após o período, os lançamentos ficam bloqueados até pagamento do plano.</p>
+          </div>
+          
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="w-full shimmer-border px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 relative overflow-hidden"
+          >
+            <span class="relative z-10">Quero meu acesso de 30 dias</span>
+          </button>
+          
+          <p class="text-center text-sm text-gray-400">
+            Você poderá lançar transações após a liberação do acesso (validade: 30 dias).
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thank You Page (hidden by default) -->
+  <section id="thankYouPage" class="hidden container mx-auto px-4 py-20">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="glass-card rounded-2xl p-8 border border-white/10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-blue-900/0 pointer-events-none"></div>
+        
+        <div class="mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-400 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        
+        <h2 class="text-2xl font-bold font-['Sora'] mb-4">Recebemos seus dados!</h2>
+        <p class="text-lg text-gray-300 mb-8">
+          Abra o WhatsApp para confirmar com o Felipe.
+        </p>
+        
+        <a 
+          id="whatsappButton"
+          href="#" 
+          class="inline-block shimmer-border px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 relative overflow-hidden mb-4"
+          target="_blank"
+        >
+          <span class="relative z-10">Enviar no WhatsApp agora</span>
+        </a>
+        
+        <div class="mt-6">
+          <a href="#" id="newSubmission" class="text-blue-400 hover:text-blue-300 text-sm">Enviar outro cadastro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-4 py-8 text-center text-sm text-gray-500 border-t border-white/10">
+    <p>Finanza — versão de avaliação para Aprendiz de Sucesso · Suporte pelo WhatsApp</p>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-10 opacity-0 transition-all duration-300 hidden">
+    <div class="flex items-start">
+      <div id="toastIcon" class="mr-3 mt-1"></div>
+      <div>
+        <p id="toastMessage" class="font-medium"></p>
+      </div>
+      <button onclick="hideToast()" class="ml-4 text-gray-400 hover:text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // WhatsApp number - replace with your actual number (format: 5524999999999)
+    const whatsappNumber = '5524999999999';
+    
+    // Form validation and submission
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('leadForm');
+      const thankYouPage = document.getElementById('thankYouPage');
+      const whatsappButton = document.getElementById('whatsappButton');
+      const newSubmission = document.getElementById('newSubmission');
+      
+      // WhatsApp input mask
+      const whatsappInput = document.getElementById('whatsapp');
+      whatsappInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 2) {
+          value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+        }
+        if (value.length > 10) {
+          value = value.substring(0, 10) + '-' + value.substring(10, 14);
+        }
+        e.target.value = value;
+      });
+      
+      // Form submission
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset errors
+        document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+        
+        // Validate form
+        let isValid = true;
+        
+        // Name validation
+        const name = document.getElementById('name').value.trim();
+        if (name.length < 3) {
+          document.getElementById('nameError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        // WhatsApp validation
+        const whatsapp = document.getElementById('whatsapp').value.trim();
+        const whatsappRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+        if (!whatsappRegex.test(whatsapp)) {
+          document.getElementById('whatsappError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        // Email validation
+        const email = document.getElementById('email').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          document.getElementById('emailError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        // Objective validation
+        const objective = document.getElementById('objective').value;
+        if (!objective) {
+          document.getElementById('objectiveError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        // Helps validation (checkboxes)
+        const helps = Array.from(document.querySelectorAll('input[name="helps"]:checked')).map(cb => cb.value);
+        if (helps.length === 0) {
+          document.getElementById('helpsError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        // LGPD validation
+        const lgpd = document.getElementById('lgpd').checked;
+        if (!lgpd) {
+          document.getElementById('lgpdError').classList.remove('hidden');
+          isValid = false;
+        }
+        
+        if (!isValid) {
+          showToast('Por favor, preencha todos os campos obrigatórios corretamente', 'error');
+          return;
+        }
+        
+        // Get other values
+        const tools = document.getElementById('tools').value.trim();
+        const goal = document.getElementById('goal').value;
+        const classTeacher = document.getElementById('class').value.trim();
+        
+        // Create lead object
+        const lead = {
+          name,
+          whatsapp,
+          email,
+          objective,
+          helps,
+          tools: tools || '—',
+          goal,
+          classTeacher: classTeacher || '—',
+          lgpd,
+          submittedAt: new Date().toLocaleString('pt-BR')
+        };
+        
+        // In a real app, you would save to Supabase here
+        console.log('Lead data:', lead);
+        
+        // Simulate successful save
+        setTimeout(() => {
+          // Show thank you page
+          document.querySelector('main').style.display = 'none';
+          thankYouPage.classList.remove('hidden');
+          
+          // Build WhatsApp message
+          const whatsappMessage = buildWhatsAppMessage(lead);
+          whatsappButton.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+          
+          showToast('Cadastro enviado com sucesso!', 'success');
+        }, 1000);
+      });
+      
+      // New submission link
+      newSubmission.addEventListener('click', function(e) {
+        e.preventDefault();
+        thankYouPage.classList.add('hidden');
+        document.querySelector('main').style.display = 'block';
+        form.reset();
+        window.scrollTo(0, 0);
+      });
+    });
+    
+    // Build WhatsApp message
+    function buildWhatsAppMessage(lead) {
+      return `*NOVO CADASTRO — FINANZA (30 DIAS)*
+👤 Nome: ${lead.name}
+📱 WhatsApp: ${lead.whatsapp}
+✉️ E-mail: ${lead.email}
+
+🎯 Objetivo principal: ${lead.objective}
+🧩 Como o Finanza deve ajudar: ${lead.helps.join(', ')}
+🛠️ Ferramentas atuais: ${lead.tools}
+📈 Meta p/ 30 dias: ${lead.goal}
+🏫 Turma/Professor: ${lead.classTeacher}
+
+✅ Aceite LGPD: ${lead.lgpd ? 'Sim' : 'Não'}
+🕒 Enviado em: ${lead.submittedAt}
+
+*Observação*: liberar acesso de 30 dias ao Finanza para este contato.`;
+    }
+    
+    // Toast functions
+    function showToast(message, type = 'info') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      
+      toastMessage.textContent = message;
+      
+      // Set icon based on type
+      let iconHtml = '';
+      if (type === 'success') {
+        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>`;
+      } else if (type === 'error') {
+        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+        </svg>`;
+      } else {
+        iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>`;
+      }
+      
+      toastIcon.innerHTML = iconHtml;
+      
+      // Show toast
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-10');
+        toast.classList.remove('opacity-0');
+      }, 10);
+      
+      // Auto hide after 5 seconds
+      setTimeout(hideToast, 5000);
+    }
+    
+    function hideToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('translate-y-10');
+      toast.classList.add('opacity-0');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 300);
+    }
+  </script>
+</body>
+</html>
