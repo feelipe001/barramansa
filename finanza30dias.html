@@ -339,7 +339,7 @@
         // Reset errors
         document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
         
-        // Validate form
+        // Validate required fields
         let isValid = true;
         
         // Name validation
@@ -410,21 +410,32 @@
           submittedAt: new Date().toLocaleString('pt-BR')
         };
         
-        // In a real app, you would save to Supabase here
-        console.log('Lead data:', lead);
+        // Build WhatsApp message
+        const whatsappMessage = `*NOVO CADASTRO — FINANZA (30 DIAS)*
+👤 Nome: ${lead.name}
+📱 WhatsApp: ${lead.whatsapp}
+✉️ E-mail: ${lead.email}
+
+🎯 Objetivo principal: ${lead.objective}
+🧩 Como o Finanza deve ajudar: ${lead.helps.join(', ')}
+🛠️ Ferramentas atuais: ${lead.tools}
+📈 Meta p/ 30 dias: ${lead.goal}
+🏫 Turma/Professor: ${lead.classTeacher}
+
+✅ Aceite LGPD: ${lead.lgpd ? 'Sim' : 'Não'}
+🕒 Enviado em: ${lead.submittedAt}
+
+*Observação*: liberar acesso de 30 dias ao Finanza para este contato.`;
+
+        // Open WhatsApp with pre-filled message
+        const whatsappUrl = `https://wa.me/5512991599185?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappUrl, '_blank');
         
-        // Simulate successful save
-        setTimeout(() => {
-          // Show thank you page
-          document.querySelector('main').style.display = 'none';
-          thankYouPage.classList.remove('hidden');
-          
-          // Build WhatsApp message
-          const whatsappMessage = buildWhatsAppMessage(lead);
-          whatsappButton.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-          
-          showToast('Cadastro enviado com sucesso!', 'success');
-        }, 1000);
+        // Show success toast
+        showToast('Cadastro enviado com sucesso! Confirme no WhatsApp.', 'success');
+        
+        // Redirect to thank you page
+        window.location.href = '/obrigado';
       });
       
       // New submission link
