@@ -1,149 +1,170 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0" />
   <title>Iveco S-Way Metallica | Transfuturo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + libs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+  <script>const { animate } = anime;</script>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <style>
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #0c0c0c;
+      background-color: #0b0b0b;
       color: #fff;
-      text-align: center;
+      overflow-x: hidden;
     }
-    header {
-      padding: 60px 20px;
-      background: linear-gradient(180deg, #0c0c0c 0%, #1a1a1a 100%);
+    .hero-gradient {
+      background: linear-gradient(to bottom, #0b0b0b 0%, #111 50%, #0b0b0b 100%);
     }
-    header picture img {
-      width: 100%;
-      max-width: 700px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+    .tablet-screen {
+      box-shadow:
+        0 0 rgba(0, 0, 0, 0.3),
+        0 9px 20px rgba(0, 0, 0, 0.3),
+        0 37px 37px rgba(0, 0, 0, 0.26),
+        0 84px 50px rgba(0, 0, 0, 0.15),
+        0 149px 60px rgba(0, 0, 0, 0.04),
+        0 233px 65px rgba(0, 0, 0, 0.01);
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 10px 0;
-      color: #fcee09;
-    }
-    .copy {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .copy span {
-      display: block;
-      font-weight: 400;
-      color: #ddd;
-      font-size: 0.95rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #bbb;
-      margin: 15px 0;
-    }
-    .cta-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 32px;
-      background: #fcee09;
-      color: #000;
-      font-weight: bold;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .cta-btn:hover {
-      background: #ffea00;
-      transform: scale(1.05);
-    }
-
-    /* Botões */
-    .links {
-      max-width: 500px;
-      margin: 40px auto;
-      display: grid;
-      gap: 12px;
-      padding: 0 16px;
-    }
-    .link-btn {
-      display: block;
-      background: #000;                
-      border: 2px solid #fcee09;       
-      color: #fcee09;                  
-      padding: 10px;                   
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;              
-      transition: 0.3s;
-    }
-    .link-btn:hover {
-      background: #111;                
-      transform: translateY(-2px);
-    }
-
-    footer {
-      padding: 40px 20px;
-      background: #111;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-    }
+    .scroll-container { perspective: 1000px; }
   </style>
 </head>
-<body>
+<body class="min-h-screen">
 
-  <!-- HERO -->
-  <header>
-    <!-- Usa imagem diferente para mobile e desktop -->
-    <picture>
-      <source srcset="./capa-mobile.jpg" media="(max-width: 768px)">
-      <img src=".capa-desktop.jpg" alt="Iveco S-Way Metallica">
-    </picture>
+  <!-- HERO COM SCROLL + TABLET -->
+  <section class="flex flex-col overflow-hidden pb-[300px] md:pb-[500px] pt-[500px] md:pt-[800px] hero-gradient">
+    <div class="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20" id="scroll-container">
+      <div class="py-10 md:py-40 w-full relative scroll-container">
 
-    <h1>Iveco S-Way Metallica</h1>
-    <div class="copy">
-      Transfuturo Veículos
-      <span>O maior grupo Iveco do Estado do Rio de Janeiro</span>
+        <!-- Cabeçalho (texto do segundo layout) -->
+        <div class="max-w-5xl mx-auto text-center will-change-transform">
+          <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white">
+            Iveco S-Way Metallica
+          </h1>
+          <div class="mt-3 text-lg md:text-2xl text-white font-semibold">
+            Transfuturo Veículos
+            <span class="block text-white/70 text-base md:text-lg font-normal mt-1">
+              O maior grupo Iveco do Estado do Rio de Janeiro
+            </span>
+          </div>
+          <p class="mt-3 text-base md:text-lg text-white/70">
+            Exclusividade, potência e atitude na estrada.
+          </p>
+
+          <!-- CTA principal (abre WhatsApp) -->
+          <a href="https://wa.me/seunumerowhatsapp"
+             class="inline-block mt-5 px-8 py-3 rounded-full font-bold bg-[#fcee09] text-black hover:scale-[1.03] transition">
+            Quero Reservar Agora
+          </a>
+        </div>
+
+        <!-- Cartão 3D com o tablet e a imagem do caminhão -->
+        <div class="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] tablet-screen will-change-transform">
+          <div class="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:p-4">
+            <!-- Moldura do tablet -->
+            <div class="relative mx-auto aspect-[3/2] h-full max-h-[560px] w-full max-w-[980px] rounded-[28px] bg-[#0e0e0f] border border-[#3a3a3a] shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+              <!-- Borda -->
+              <div class="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-black/20"></div>
+
+              <!-- Notch -->
+              <div class="absolute top-2 left-1/2 -translate-x-1/2 h-1.5 w-16 rounded-full bg-black/60"></div>
+
+              <!-- TELA: picture com variação mobile/desktop (troque os caminhos) -->
+              <div class="absolute inset-3 rounded-[22px] overflow-hidden bg-black">
+                <picture>
+                  <!-- imagem mobile -->
+                  <source srcset="./capa-mobile.jpg" media="(max-width: 768px)">
+                  <!-- imagem desktop -->
+                  <img src="./capa-desktop.jpg"
+                       alt="Iveco S-Way Metallica"
+                       class="w-full h-full object-cover object-center" />
+                </picture>
+
+                <!-- Reflexo sutil -->
+                <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_40%)]"></div>
+              </div>
+
+              <!-- Sombra externa -->
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 h-6 w-[70%] rounded-full bg-black/30 blur-md"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <p>Exclusividade, potência e atitude na estrada.</p>
-    <a href="https://wa.me/seunumerowhatsapp" class="cta-btn">Quero Reservar Agora</a>
-  </header>
+  </section>
 
-  <!-- BOTÕES -->
-  <section class="links">
-    <a href="#" class="link-btn">Peças</a>
-    <a href="#" class="link-btn">Site</a>
-    <a href="#" class="link-btn">E-Commerce</a>
-    <a href="#" class="link-btn">Fan Shop</a>
-    <a href="#" class="link-btn">Planos de Manutenção</a>
-    <a href="#" class="link-btn">Veículos 0KM</a>
-    <a href="#" class="link-btn">Consórcio</a>
-    <a href="#" class="link-btn">Transfuturo Barra Mansa</a>
-    <a href="#" class="link-btn">Transfuturo Itaboraí</a>
-    <a href="#" class="link-btn">Transfuturo Nova Iguaçu</a>
-    <a href="#" class="link-btn">Transfuturo Barra da Tijuca</a>
-    <a href="#" class="link-btn">Tudo sobre o S-WAY</a>
+  <!-- SEÇÃO DE LINKS (adaptada do segundo layout para Tailwind) -->
+  <section class="max-w-xl w-full mx-auto grid gap-3 px-4 md:px-0 -mt-40 md:mt-0">
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Peças</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Site</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">E-Commerce</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Fan Shop</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Planos de Manutenção</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Veículos 0KM</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Consórcio</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Barra Mansa</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Itaboraí</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Nova Iguaçu</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Barra da Tijuca</a>
+    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Tudo sobre o S-WAY</a>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Transfuturo Veículos. Todos os direitos reservados.</p>
+  <footer class="mt-12 py-10 text-center text-sm text-[#bbb] bg-[#111]">
+    © 2025 Transfuturo Veículos. Todos os direitos reservados.
   </footer>
 
+  <!-- CTA FLOTANTE (opcional) -->
+  <div class="fixed bottom-8 left-0 right-0 flex justify-center z-50">
+    <a href="https://wa.me/seunumerowhatsapp"
+       class="bg-[#e30613] hover:bg-[#c40511] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e30613] focus:ring-opacity-50 flex items-center">
+      <i data-feather="phone" class="mr-2"></i> Fale com um consultor Transfuturo
+    </a>
+  </div>
+
+  <script>
+    feather.replace();
+
+    // refs
+    const scrollContainer = document.getElementById('scroll-container');
+    const tablet = document.querySelector('.tablet-screen');
+    const header = document.querySelector('.max-w-5xl.mx-auto.text-center');
+
+    function updateScrollEffects() {
+      const containerTop = scrollContainer.getBoundingClientRect().top;
+      const progress = Math.min(Math.max(-containerTop / 500, 0), 1);
+
+      // animação similar ao framer-motion: rotateX, scale e translateY
+      const rotateX = 20 - (progress * 20);
+      const scale = 1.05 - (progress * 0.05);
+      const translateY = -progress * 100;
+
+      tablet.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
+      header.style.transform = `translateY(${translateY}px)`;
+
+      requestAnimationFrame(updateScrollEffects);
+    }
+    requestAnimationFrame(updateScrollEffects);
+
+    function checkMobile() {
+      if (window.innerWidth <= 768) {
+        tablet.style.transform = 'rotateX(0deg) scale(0.9)';
+      } else {
+        tablet.style.transform = 'rotateX(20deg) scale(1.05)';
+      }
+    }
+    window.addEventListener('resize', checkMobile);
+    checkMobile();
+  </script>
 </body>
 </html>
