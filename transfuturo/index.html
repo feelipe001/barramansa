@@ -1,185 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iveco S-Way Metallica | Transfuturo</title>
-
-  <!-- Tailwind + libs -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0b0b0b;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    .hero-gradient {
-      background: linear-gradient(to bottom, #0b0b0b 0%, #111 50%, #0b0b0b 100%);
-    }
-    .tablet-screen {
-      box-shadow:
-        0 0 rgba(0, 0, 0, 0.3),
-        0 9px 20px rgba(0, 0, 0, 0.3),
-        0 37px 37px rgba(0, 0, 0, 0.26),
-        0 84px 50px rgba(0, 0, 0, 0.15),
-        0 149px 60px rgba(0, 0, 0, 0.04),
-        0 233px 65px rgba(0, 0, 0, 0.01);
-    }
-    .scroll-container { perspective: 1000px; }
-
-    /* --- ANIMAÇÕES --- */
-    @keyframes ctaGlow {
-      0% { box-shadow: 0 0 0 rgba(227,6,19,0.0), 0 0 0 rgba(227,6,19,0.0); }
-      50% { box-shadow: 0 0 24px rgba(227,6,19,0.45), 0 0 48px rgba(227,6,19,0.2); }
-      100% { box-shadow: 0 0 0 rgba(227,6,19,0.0), 0 0 0 rgba(227,6,19,0.0); }
-    }
-    .cta-anim {
-      animation: ctaGlow 2.6s ease-in-out infinite;
-      will-change: transform, box-shadow;
-    }
-    .cta-anim:active { transform: scale(0.98); }
-
-    @keyframes subtleFloat {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-    .float-soft { animation: subtleFloat 6s ease-in-out infinite; }
-
-    /* Safe area para iOS */
-    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iveco S-Way Metallica | Transfuturo Veículos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #222222 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px -5px #e30613;
+            }
+            to {
+                box-shadow: 0 0 20px 2px #e30613;
+            }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            background-color: #111111;
+        }
+        .tablet-container {
+            perspective: 1000px;
+        }
+        .tablet-inner {
+            transition: all 0.5s ease-out;
+            transform-style: preserve-3d;
+        }
+    </style>
 </head>
 <body class="min-h-screen">
-
-  <!-- HERO COM SCROLL + TABLET (compacto no mobile) -->
-  <section class="flex flex-col overflow-hidden pb-12 md:pb-[500px] pt-24 md:pt-[800px] hero-gradient">
-    <div class="h-[42rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20" id="scroll-container">
-      <div class="py-10 md:py-32 w-full relative scroll-container">
-
-        <!-- Header -->
-        <div class="max-w-5xl mx-auto text-center will-change-transform" id="hero-header">
-          <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            Iveco S-Way Metallica
-          </h1>
-          <div class="mt-2 text-lg md:text-2xl text-white font-semibold">
-            Transfuturo Veículos
-            <span class="block text-white/70 text-base md:text-lg font-normal mt-1">
-              O maior grupo Iveco do Estado do Rio de Janeiro
-            </span>
-          </div>
-          <p class="mt-2 text-sm md:text-lg text-white/70">
-            Exclusividade, potência e atitude na estrada.
-          </p>
-
-          <!-- CTA principal -->
-          <a href="https://wa.me/seunumerowhatsapp"
-             class="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full font-bold bg-[#fcee09] text-black transition-transform float-soft"
-             style="transform-origin:center;">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75a9.45 9.45 0 01-4.017-.896L2.25 21.75l.896-4.017A9.45 9.45 0 012.25 12zM8.25 9.75a6 6 0 007.5 7.5" /></svg>
-            Quero Reservar Agora
-          </a>
+    <header class="py-6 px-4 md:px-8 lg:px-16 transition-all duration-500" id="header">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-yellow-400 font-bold text-xl md:text-2xl">TRANSFUTURO</div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-yellow-400 transition">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition">Veículos</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition">Serviços</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
         </div>
+    </header>
 
-        <!-- Cartão 3D com o tablet -->
-        <div class="max-w-5xl -mt-4 md:-mt-12 mx-auto h-[22rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] tablet-screen will-change-transform" id="tablet-card">
-          <div class="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:p-4">
-            <!-- Moldura do tablet -->
-            <div class="relative mx-auto aspect-[3/2] h-full w-full max-w-[980px] rounded-[28px] bg-[#0e0e0f] border border-[#3a3a3a] shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
-              <div class="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-black/20"></div>
-              <div class="absolute top-2 left-1/2 -translate-x-1/2 h-1.5 w-16 rounded-full bg-black/60"></div>
+    <main>
+        <section class="pt-24 pb-12 md:pt-32 md:pb-24 px-4 md:px-8 lg:px-16">
+            <div class="container mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-2" data-aos="fade-up">IVECO S-WAY METALLICA</h1>
+                <h2 class="text-xl md:text-2xl text-yellow-400 mb-4" data-aos="fade-up" data-aos-delay="100">TRANSFUTURO VEÍCULOS</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">O maior grupo Iveco do Estado do Rio de Janeiro</p>
+                <p class="text-xl md:text-2xl font-medium mb-12" data-aos="fade-up" data-aos-delay="300">Exclusividade, potência e atitude na estrada.</p>
+                
+                <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
+                    <button class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 px-8 rounded-full float transition-all duration-300">
+                        QUERO RESERVAR AGORA
+                    </button>
+                </div>
 
-              <!-- TELA: mobile/desktop -->
-              <div class="absolute inset-3 rounded-[22px] overflow-hidden bg-black">
-                <picture>
-                  <!-- Substitua os caminhos abaixo -->
-                  <source srcset="./capa-mobile.jpg" media="(max-width: 768px)">
-                  <img src="./capa-desktop.jpg" alt="Iveco S-Way Metallica" class="w-full h-full object-cover object-center" />
-                </picture>
-                <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_40%)]"></div>
-              </div>
-
-              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 h-6 w-[70%] rounded-full bg-black/30 blur-md"></div>
+                <div class="tablet-container mt-12 md:mt-24">
+                    <div class="tablet-inner max-w-2xl mx-auto" id="tablet">
+                        <div class="relative bg-gray-900 rounded-2xl p-2 md:p-4 shadow-2xl">
+                            <div class="absolute inset-0 border-2 border-yellow-400 rounded-xl pointer-events-none"></div>
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="https://via.placeholder.com/800x450/333333/FFFFFF?text=IVECO+S-WAY+METALLICA">
+                                <img src="https://via.placeholder.com/400x225/333333/FFFFFF?text=IVECO+S-WAY+METALLICA" alt="Iveco S-Way Metallica" class="w-full h-auto rounded-lg">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
+
+        <section class="py-12 px-4 md:px-8 lg:px-16">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Peças
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Site
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        E-Commerce
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Fan Shop
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Planos de Manutenção
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Veículos 0KM
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Consórcio
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Transfuturo Barra Mansa
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Transfuturo Itaboraí
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Transfuturo Nova Iguaçu
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Transfuturo Barra da Tijuca
+                    </a>
+                    <a href="#" class="btn-hover border-2 border-yellow-400 rounded-lg p-4 text-center transition-all duration-300">
+                        Tudo sobre o S-WAY
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 py-8 px-4">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Transfuturo Veículos. Todos os direitos reservados.</p>
         </div>
+    </footer>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- LINKS -->
-  <section class="max-w-xl w-full mx-auto grid gap-3 px-4 md:px-0 mt-6">
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Peças</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Site</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">E-Commerce</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Fan Shop</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Planos de Manutenção</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Veículos 0KM</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Consórcio</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Barra Mansa</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Itaboraí</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Nova Iguaçu</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Transfuturo Barra da Tijuca</a>
-    <a href="#" class="block bg-black border-2 border-[#fcee09] text-[#fcee09] py-2.5 rounded-md font-semibold text-center hover:bg-[#111] transition">Tudo sobre o S-WAY</a>
-  </section>
-
-  <!-- Espaço para o CTA fixo não cobrir nada no fim -->
-  <div class="h-24 md:h-0"></div>
-
-  <!-- FOOTER -->
-  <footer class="mt-6 py-10 text-center text-sm text-[#bbb] bg-[#111]">
-    © 2025 Transfuturo Veículos. Todos os direitos reservados.
-  </footer>
-
-  <!-- CTA FLOTANTE -->
-  <div class="fixed bottom-4 left-0 right-0 flex justify-center z-50 safe-bottom">
-    <a href="https://wa.me/seunumerowhatsapp"
-       class="cta-anim bg-[#e30613] hover:bg-[#c40511] text-white font-bold py-3 px-8 rounded-full flex items-center gap-2 transition duration-300">
-      <i data-feather="phone"></i> Fale com um consultor Transfuturo
+    <a href="tel:+5521999999999" class="fixed bottom-4 md:bottom-8 right-4 md:right-8 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full flex items-center glow transition-all duration-300" style="padding-bottom: env(safe-area-inset-bottom);">
+        <i data-feather="phone" class="mr-2"></i>
+        FALE COM UM CONSULTOR TRANSFUTURO
     </a>
-  </div>
 
-  <script>
-    feather.replace();
+    <script>
+        feather.replace();
+        
+        // Tablet tilt effect on scroll
+        window.addEventListener('scroll', function() {
+            const tablet = document.getElementById('tablet');
+            const scrollPosition = window.scrollY;
+            
+            // Header effect
+            const header = document.getElementById('header');
+            if (scrollPosition > 50) {
+                header.classList.add('py-4');
+                header.classList.add('bg-black');
+                header.classList.add('bg-opacity-80');
+            } else {
+                header.classList.remove('py-4');
+                header.classList.remove('bg-black');
+                header.classList.remove('bg-opacity-80');
+            }
+            
+            // Tablet effect - different for mobile and desktop
+            if (window.innerWidth > 768) {
+                // Desktop effect
+                const rotation = Math.min(scrollPosition * 0.05, 15);
+                const scale = 1 - Math.min(scrollPosition * 0.0005, 0.1);
+                tablet.style.transform = `rotateX(${rotation}deg) scale(${scale})`;
+            } else {
+                // Mobile effect - more subtle
+                const rotation = Math.min(scrollPosition * 0.02, 5);
+                const scale = 1 - Math.min(scrollPosition * 0.0002, 0.03);
+                tablet.style.transform = `rotateX(${rotation}deg) scale(${scale})`;
+            }
+        });
 
-    // Refs
-    const scrollContainer = document.getElementById('scroll-container');
-    const tablet = document.getElementById('tablet-card');
-    const header = document.getElementById('hero-header');
+        // Initial animations
+        document.addEventListener('DOMContentLoaded', function() {
+            anime({
+                targets: '#header',
+                translateY: [-50, 0],
+                opacity: [0, 1],
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
 
-    // Loop de animação de scroll (suave e leve)
-    function updateScrollEffects() {
-      const rect = scrollContainer.getBoundingClientRect();
-      const progressRaw = -rect.top / 500;
-      const progress = Math.min(Math.max(progressRaw, 0), 1);
-
-      const rotateX = 20 - (progress * 20);     // 20deg -> 0deg
-      const scale = 1.05 - (progress * 0.05);   // 1.05 -> 1
-      const translateY = -progress * 100;       // 0 -> -100px
-
-      tablet.style.transform = `rotateX(${rotateX}deg) scale(${scale})`;
-      header.style.transform = `translateY(${translateY}px)`;
-
-      requestAnimationFrame(updateScrollEffects);
-    }
-    requestAnimationFrame(updateScrollEffects);
-
-    // Estado inicial responsivo
-    function initTransforms() {
-      if (window.innerWidth <= 768) {
-        tablet.style.transform = 'rotateX(0deg) scale(0.92)';
-      } else {
-        tablet.style.transform = 'rotateX(20deg) scale(1.05)';
-      }
-    }
-    window.addEventListener('resize', initTransforms);
-    initTransforms();
-  </script>
+            anime({
+                targets: '.tablet-inner',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 300
+            });
+        });
+    </script>
 </body>
 </html>
