@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback | Gestão de Páginas</title>
+  <meta name="description" content="Envie seu feedback sobre nossa gestão de páginas: o que está achando, pontos de melhoria e sugestões." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { 
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    .ring-focus:focus { outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,.35); }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800 text-neutral-100">
+  <header class="px-6 md:px-8 pt-10 pb-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Feedback da Gestão de Páginas</h1>
+      <p class="text-neutral-300 mt-3">Queremos evoluir sempre. Conte pra gente como está sendo a experiência e onde podemos melhorar.</p>
+    </div>
+  </header>
+
+  <main class="px-6 md:px-8 pb-16">
+    <form id="feedbackForm" class="max-w-3xl mx-auto space-y-6 glass rounded-xl p-6 md:p-8 shadow-soft">
+      <!-- Identificação -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-semibold">Sobre você</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="nome" class="block text-sm mb-1">Nome *</label>
+            <input id="nome" name="nome" type="text" required placeholder="Seu nome" class="w-full px-3 py-2 rounded-lg bg-neutral-800/70 ring-focus border border-neutral-700 placeholder-neutral-500">
+          </div>
+          <div>
+            <label for="cargo" class="block text-sm mb-1">Cargo / Função</label>
+            <input id="cargo" name="cargo" type="text" placeholder="Ex.: dona da marca, gerente de marketing" class="w-full px-3 py-2 rounded-lg bg-neutral-800/70 ring-focus border border-neutral-700 placeholder-neutral-500">
+          </div>
+        </div>
+      </section>
+
+      <!-- Avaliação -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-semibold">Avaliação</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="satisfacao" class="block text-sm mb-1">De 0 a 10, como você avalia nosso trabalho?</label>
+            <input id="satisfacao" name="satisfacao" type="range" min="0" max="10" value="8" class="w-full">
+            <div class="text-sm mt-1">Nota: <span id="notaValor" class="font-semibold">8</span>/10</div>
+          </div>
+          <div>
+            <label for="recomendacao" class="block text-sm mb-1">Indicaria nosso trabalho?</label>
+            <div class="flex gap-4">
+              <label class="inline-flex items-center gap-2"><input type="radio" name="recomendacao" value="Sim" class="accent-blue-500" checked>Sim</label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="recomendacao" value="Talvez" class="accent-blue-500">Talvez</label>
+              <label class="inline-flex items-center gap-2"><input type="radio" name="recomendacao" value="Não" class="accent-blue-500">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="pontosPositivos" class="block text-sm mb-1">O que você mais está gostando?</label>
+          <textarea id="pontosPositivos" name="pontosPositivos" rows="4" placeholder="Fale sobre resultados, qualidade, prazos, comunicação..." class="w-full px-3 py-2 rounded-lg bg-neutral-800/70 ring-focus border border-neutral-700 placeholder-neutral-500"></textarea>
+        </div>
+        <div>
+          <label for="melhorias" class="block text-sm mb-1">Pontos de melhoria (se houver)</label>
+          <textarea id="melhorias" name="melhorias" rows="4" placeholder="Se algo pode melhorar, conte pra gente." class="w-full px-3 py-2 rounded-lg bg-neutral-800/70 ring-focus border border-neutral-700 placeholder-neutral-500"></textarea>
+        </div>
+      </section>
+
+      <!-- Envio -->
+      <section class="space-y-3">
+        <button type="submit" id="enviarBtn" class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-5 py-3 rounded-lg">
+          Enviar pelo WhatsApp
+        </button>
+      </section>
+      <p id="alertaCampos" class="hidden text-sm text-red-400">Preencha pelo menos o seu nome e uma mensagem.</p>
+    </form>
+  </main>
+
+  <footer class="px-6 md:px-8 pb-10 text-center text-neutral-400 text-sm">
+    <p>Obrigado por colaborar com nossa evolução. 💙</p>
+  </footer>
+
+  <script>
+    const satisfacao = document.getElementById('satisfacao');
+    const notaValor = document.getElementById('notaValor');
+    satisfacao.addEventListener('input', () => {
+      notaValor.textContent = satisfacao.value;
+    });
+
+    const form = document.getElementById('feedbackForm');
+    const alerta = document.getElementById('alertaCampos');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const positivos = document.getElementById('pontosPositivos').value.trim();
+      const melhorias = document.getElementById('melhorias').value.trim();
+      const nota = document.getElementById('satisfacao').value;
+      const recomendacao = (new FormData(form).get('recomendacao')) || '—';
+
+      if (!nome || (!positivos && !melhorias)) {
+        alerta.classList.remove('hidden');
+        return;
+      } else {
+        alerta.classList.add('hidden');
+      }
+
+      const mensagem = `*Novo Feedback*%0A👤 Nome: ${nome}%0A⭐ Nota: ${nota}%0A🤝 Recomendaria: ${recomendacao}%0A✅ Positivos: ${positivos}%0A🛠️ Melhorias: ${melhorias}`;
+      const numeroWhats = '5512991599185';
+      const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  </script>
+</body>
+</html>
