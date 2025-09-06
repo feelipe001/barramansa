@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finanza — Missão, Valores e Business Model Canvas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--bg:#0b1220;--card:#0f172a;--muted:#1e293b;--accent:#06b6d4;--accent-2:#0ea5e9;}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,var(--bg),#0a0f1a);color:#e5e7eb}
+    /* Grid do BMC (desktop) */
+    .bmc-grid{display:grid;gap:0.75rem;grid-template-columns:1.2fr 1.2fr 1.2fr 1.8fr 1.6fr 1.2fr;grid-template-rows:auto auto auto;grid-template-areas:
+        "kp ka kr vp cr ch cs"
+        "kp ka kr vp ch ch cs"
+        "cost cost cost cost rev rev"}
+    .b-kp{grid-area:kp}
+    .b-ka{grid-area:ka}
+    .b-kr{grid-area:kr}
+    .b-vp{grid-area:vp}
+    .b-cr{grid-area:cr}
+    .b-ch{grid-area:ch}
+    .b-cs{grid-area:cs}
+    .b-cost{grid-area:cost}
+    .b-rev{grid-area:rev}
+    .card{background:linear-gradient(180deg,var(--card),#0c1426);border:1px solid #1f2937;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card h3{font-weight:700}
+    .tag{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;background:#0b2530;border:1px solid #113645;color:#93c5fd;font-size:.75rem}
+    .glow{box-shadow:0 0 0 1px rgba(14,165,233,.35),0 10px 40px rgba(14,165,233,.15)}
+
+    /* Mobile responsivo: empilhar cartões */
+    @media (max-width: 1024px){
+      .bmc-grid{grid-template-columns:1fr;grid-template-areas:"vp" "cs" "cr" "ch" "ka" "kr" "kp" "cost" "rev"}
+    }
+
+    /* Otimização de impressão */
+    @media print{
+      body{background:#fff;color:#111}
+      .card{background:#fff;border-color:#d1d5db;box-shadow:none}
+      .no-print{display:none!important}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="no-print sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)] glow"></div>
+        <span class="text-lg font-semibold">Finanza</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#missao" class="hover:text-white">Missão</a>
+        <a href="#valores" class="hover:text-white">Valores</a>
+        <a href="#canvas" class="hover:text-white">Canvas</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#" class="no-print inline-flex items-center justify-center rounded-xl border border-cyan-400/30 px-3 py-1.5 text-sm hover:bg-cyan-400/10">Entrar</a>
+        <a href="#" class="no-print inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] px-3 py-1.5 text-sm font-semibold text-black">Criar conta grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-40" aria-hidden="true">
+      <svg class="w-full h-full" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#0ea5e9" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="600" fill="url(#g)"/>
+      </svg>
+    </div>
+    <div class="mx-auto max-w-7xl px-4 py-20 md:py-24 text-center">
+      <span class="tag">Plano único • 30 dias de acesso liberado após pagamento</span>
+      <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
+        Missão, Valores e <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-400">Business Model Canvas</span>
+      </h1>
+      <p class="mt-4 text-slate-300 max-w-3xl mx-auto">Visão estratégica do Finanza — simples, acessível e feito para transformar a organização financeira em liberdade e crescimento.</p>
+      <div class="mt-8 flex items-center justify-center gap-4 no-print">
+        <button onclick="window.print()" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2 text-sm hover:bg-white/5">Imprimir</button>
+        <a href="#canvas" class="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 px-4 py-2 text-sm">Ver Canvas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSÃO -->
+  <section id="missao" class="mx-auto max-w-7xl px-4 pt-4 pb-10">
+    <div class="card p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-bold">Missão</h2>
+      <p class="mt-3 text-slate-300 text-lg">“Empoderar pessoas e pequenos negócios a controlarem suas finanças de forma simples, acessível e intuitiva, transformando a organização do dinheiro em liberdade e crescimento.”</p>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section id="valores" class="mx-auto max-w-7xl px-4 pb-12">
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card p-6">
+        <h3 class="text-xl">Simplicidade</h3>
+        <p class="mt-2 text-slate-300">O complexo vira direto ao ponto.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl">Acessibilidade</h3>
+        <p class="mt-2 text-slate-300">Ferramenta democrática, feita para todos.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl">Confiabilidade</h3>
+        <p class="mt-2 text-slate-300">Segurança e clareza dos dados do usuário.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl">Inovação Contínua</h3>
+        <p class="mt-2 text-slate-300">Melhoria constante do produto.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl">Educação Financeira</h3>
+        <p class="mt-2 text-slate-300">Ensinar enquanto ajuda a gerenciar.</p>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl">Impacto Real</h3>
+        <p class="mt-2 text-slate-300">Foco no resultado no dia a dia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANVAS -->
+  <section id="canvas" class="mx-auto max-w-7xl px-4 pb-24">
+    <div class="mb-4 flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-bold">Business Model Canvas</h2>
+      <span class="tag">Versão 1.0</span>
+    </div>
+
+    <div class="bmc-grid">
+      <!-- Parcerias-Chave -->
+      <article class="card p-4 b-kp">
+        <h3 class="text-lg">Parcerias‑Chave</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Kiwify / Kirvano (pagamentos)</li>
+          <li>Supabase (infraestrutura)</li>
+          <li>Afroworld (ecossistema de tráfego)</li>
+          <li>Instituições educacionais (Aprendiz de Sucesso)</li>
+        </ul>
+      </article>
+
+      <!-- Atividades-Chave -->
+      <article class="card p-4 b-ka">
+        <h3 class="text-lg">Atividades‑Chave</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Evolução da plataforma</li>
+          <li>Conteúdo educacional</li>
+          <li>Aquisição de usuários (orgânico + pago)</li>
+          <li>Suporte ao cliente</li>
+        </ul>
+      </article>
+
+      <!-- Recursos-Chave -->
+      <article class="card p-4 b-kr">
+        <h3 class="text-lg">Recursos‑Chave</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Dashboard + banco de dados</li>
+          <li>Time de produto e marketing</li>
+          <li>Marca e comunidade</li>
+          <li>Integrações e automações</li>
+        </ul>
+      </article>
+
+      <!-- Proposta de Valor -->
+      <article class="card p-4 b-vp">
+        <h3 class="text-lg">Proposta de Valor</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Controle financeiro simples e intuitivo</li>
+          <li>Plano acessível com foco em resultado</li>
+          <li>Educação + gestão no mesmo lugar</li>
+          <li>Acesso liberado automaticamente por 30 dias após pagamento</li>
+        </ul>
+      </article>
+
+      <!-- Relacionamento com Clientes -->
+      <article class="card p-4 b-cr">
+        <h3 class="text-lg">Relacionamento com Clientes</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Suporte humanizado (WhatsApp/Chat)</li>
+          <li>Comunidade e desafios</li>
+          <li>Conteúdo gratuito recorrente</li>
+          <li>Programa de indicação</li>
+        </ul>
+      </article>
+
+      <!-- Canais -->
+      <article class="card p-4 b-ch">
+        <h3 class="text-lg">Canais</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Site (appfinanza.com.br)</li>
+          <li>Instagram, TikTok e YouTube</li>
+          <li>Parcerias educacionais</li>
+          <li>Indicações de usuários</li>
+        </ul>
+      </article>
+
+      <!-- Segmentos de Clientes -->
+      <article class="card p-4 b-cs">
+        <h3 class="text-lg">Segmentos de Clientes</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Jovens adultos</li>
+          <li>MEIs e microempreendedores</li>
+          <li>Pessoas endividadas</li>
+          <li>Estudantes e aprendizes</li>
+        </ul>
+      </article>
+
+      <!-- Estrutura de Custos -->
+      <article class="card p-4 b-cost">
+        <h3 class="text-lg">Estrutura de Custos</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Infraestrutura (Supabase, hospedagem)</li>
+          <li>Ferramentas SaaS (Lovable, etc.)</li>
+          <li>Marketing e tráfego pago</li>
+          <li>Conteúdo, design e suporte</li>
+        </ul>
+      </article>
+
+      <!-- Fontes de Receita -->
+      <article class="card p-4 b-rev">
+        <h3 class="text-lg">Fontes de Receita</h3>
+        <ul class="mt-2 list-disc list-inside text-slate-300">
+          <li>Assinatura mensal (plano único de R$ 32,90)</li>
+          <li>Pacotes educacionais (cursos e eBooks)</li>
+          <li>Parcerias futuras (crédito, investimentos, seguros)</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Observações -->
+    <div class="mt-6 text-sm text-slate-400">
+      <p>Obs.: Este Canvas é um ponto de partida vivo. Atualize conforme métricas e feedbacks dos usuários.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-12 text-sm text-slate-400">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <p>© <span id="year"></span> Finanza — parte do ecossistema Afroworld.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="hover:text-slate-200">Privacidade</a>
+          <span aria-hidden>•</span>
+          <a href="#" class="hover:text-slate-200">Termos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
