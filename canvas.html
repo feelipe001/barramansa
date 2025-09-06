@@ -3,127 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Finanza — Missão, Valores e Business Model Canvas</title>
+  <title>Finanza — Missão, Visão, Valores e Business Model Canvas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{--bg:#0b1220;--card:#0f172a;--muted:#1e293b;--accent:#06b6d4;--accent-2:#0ea5e9;}
-    html,body{height:100%}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,var(--bg),#0a0f1a);color:#e5e7eb}
-    /* Grid do BMC (desktop) */
-    .bmc-grid{display:grid;gap:0.75rem;grid-template-columns:1.2fr 1.2fr 1.2fr 1.8fr 1.6fr 1.2fr;grid-template-rows:auto auto auto;grid-template-areas:
-        "kp ka kr vp cr ch cs"
-        "kp ka kr vp ch ch cs"
-        "cost cost cost cost rev rev"}
-    .b-kp{grid-area:kp}
-    .b-ka{grid-area:ka}
-    .b-kr{grid-area:kr}
-    .b-vp{grid-area:vp}
-    .b-cr{grid-area:cr}
-    .b-ch{grid-area:ch}
-    .b-cs{grid-area:cs}
-    .b-cost{grid-area:cost}
-    .b-rev{grid-area:rev}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg,var(--bg),#0a0f1a); color:#e5e7eb}
     .card{background:linear-gradient(180deg,var(--card),#0c1426);border:1px solid #1f2937;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .card h3{font-weight:700}
-    .tag{display:inline-flex;align-items:center;gap:.4rem;padding:.2rem .6rem;border-radius:999px;background:#0b2530;border:1px solid #113645;color:#93c5fd;font-size:.75rem}
-    .glow{box-shadow:0 0 0 1px rgba(14,165,233,.35),0 10px 40px rgba(14,165,233,.15)}
-
-    /* Mobile responsivo: empilhar cartões */
-    @media (max-width: 1024px){
-      .bmc-grid{grid-template-columns:1fr;grid-template-areas:"vp" "cs" "cr" "ch" "ka" "kr" "kp" "cost" "rev"}
-    }
-
-    /* Otimização de impressão */
-    @media print{
-      body{background:#fff;color:#111}
-      .card{background:#fff;border-color:#d1d5db;box-shadow:none}
-      .no-print{display:none!important}
-    }
+    .bmc-grid{display:grid;gap:0.75rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <header class="no-print sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)] glow"></div>
+        <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)]"></div>
         <span class="text-lg font-semibold">Finanza</span>
       </div>
       <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
         <a href="#missao" class="hover:text-white">Missão</a>
-        <a href="#valores" class="hover:text-white">Valores</a>
+        <a href="#visao" class="hover:text-white">Visão</a>
+        <a href="#valores" class="hover:text-white">Valores (da empresa)</a>
+        <a href="#pilares" class="hover:text-white">Pilares</a>
         <a href="#canvas" class="hover:text-white">Canvas</a>
+        <a href="#diretrizes" class="hover:text-white">Diretrizes</a>
+        <a href="#kpis" class="hover:text-white">KPIs</a>
+        <a href="#roadmap" class="hover:text-white">Roadmap 90 dias</a>
       </nav>
-      <div class="flex items-center gap-3">
-        <a href="#" class="no-print inline-flex items-center justify-center rounded-xl border border-cyan-400/30 px-3 py-1.5 text-sm hover:bg-cyan-400/10">Entrar</a>
-        <a href="#" class="no-print inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] px-3 py-1.5 text-sm font-semibold text-black">Criar conta grátis</a>
-      </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 opacity-40" aria-hidden="true">
-      <svg class="w-full h-full" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="g" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity=".35"/>
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="1200" height="600" fill="url(#g)"/>
-      </svg>
-    </div>
-    <div class="mx-auto max-w-7xl px-4 py-20 md:py-24 text-center">
-      <span class="tag">Plano único • 30 dias de acesso liberado após pagamento</span>
-      <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
-        Missão, Valores e <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-400">Business Model Canvas</span>
-      </h1>
-      <p class="mt-4 text-slate-300 max-w-3xl mx-auto">Visão estratégica do Finanza — simples, acessível e feito para transformar a organização financeira em liberdade e crescimento.</p>
-      <div class="mt-8 flex items-center justify-center gap-4 no-print">
-        <button onclick="window.print()" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-2 text-sm hover:bg-white/5">Imprimir</button>
-        <a href="#canvas" class="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/15 px-4 py-2 text-sm">Ver Canvas</a>
-      </div>
-    </div>
+  <section class="text-center py-16 px-4">
+    <h1 class="text-4xl md:text-6xl font-extrabold">Missão, Valores e <span class="text-cyan-400">Canvas do Finanza</span></h1>
+    <p class="mt-4 text-slate-300 max-w-2xl mx-auto">Um olhar estratégico sobre a essência, os princípios e o modelo de negócio do Finanza.</p>
   </section>
 
   <!-- MISSÃO -->
   <section id="missao" class="mx-auto max-w-7xl px-4 pt-4 pb-10">
     <div class="card p-6 md:p-8">
       <h2 class="text-2xl md:text-3xl font-bold">Missão</h2>
-      <p class="mt-3 text-slate-300 text-lg">“Empoderar pessoas e pequenos negócios a controlarem suas finanças de forma simples, acessível e intuitiva, transformando a organização do dinheiro em liberdade e crescimento.”</p>
+      <p class="mt-3 text-slate-300 text-lg">“Empoderar pessoas e pequenos negócios a controlarem suas finanças de forma simples, acessível e intuitiva — transformando a organização do dinheiro em liberdade e crescimento real.”</p>
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-slate-300">
+        <div class="card p-4">
+          <h3 class="font-semibold">Como entregamos</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Fluxos simples e sem fricção</li>
+            <li>Educação embutida no produto</li>
+            <li>Automação para reduzir esforço</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Para quem</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Indivíduos em início de organização</li>
+            <li>MEIs e pequenos negócios</li>
+            <li>Estudantes e aprendizes</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Impacto esperado</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Consistência de registro</li>
+            <li>Clareza sobre fluxo de caixa</li>
+            <li>Decisões financeiras melhores</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- VALORES -->
+  <section id="visao" class="mx-auto max-w-7xl px-4 pb-10">
+    <div class="card p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-bold">Visão</h2>
+      <p class="mt-3 text-slate-300 text-lg">“Ser a plataforma brasileira mais confiável para construir <em>hábito financeiro</em>, reconhecida por simplicidade, educação prática e resultados mensuráveis.”</p>
+      <div class="mt-6 grid md:grid-cols-2 gap-4 text-slate-300">
+        <div class="card p-4">
+          <h3 class="font-semibold">Norte para 2 anos</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>&gt; 50k usuários ativos mensais (MAU)</li>
+            <li>NPS ≥ 60 e retenção 90 dias ≥ 35%</li>
+            <li>Biblioteca de educação financeira própria</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Princípios de crescimento</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Product‑led growth (PLG)</li>
+            <li>Parcerias educacionais e comunidades</li>
+            <li>Conteúdo + ferramenta integrados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="valores" class="mx-auto max-w-7xl px-4 pb-12">
     <div class="grid md:grid-cols-3 gap-4">
       <div class="card p-6">
-        <h3 class="text-xl">Simplicidade</h3>
-        <p class="mt-2 text-slate-300">O complexo vira direto ao ponto.</p>
+        <h3 class="text-xl">Simplicidade Radical</h3>
+        <p class="mt-2 text-slate-300">Remover ruído, priorizar o essencial e tornar o controle de finanças acessível a qualquer pessoa.</p>
       </div>
       <div class="card p-6">
         <h3 class="text-xl">Acessibilidade</h3>
-        <p class="mt-2 text-slate-300">Ferramenta democrática, feita para todos.</p>
+        <p class="mt-2 text-slate-300">Preço justo, linguagem clara e experiência inclusiva para todos os níveis de conhecimento.</p>
       </div>
       <div class="card p-6">
-        <h3 class="text-xl">Confiabilidade</h3>
-        <p class="mt-2 text-slate-300">Segurança e clareza dos dados do usuário.</p>
+        <h3 class="text-xl">Confiabilidade & Ética</h3>
+        <p class="mt-2 text-slate-300">Segurança de dados, transparência e respeito às escolhas do usuário.</p>
       </div>
       <div class="card p-6">
-        <h3 class="text-xl">Inovação Contínua</h3>
-        <p class="mt-2 text-slate-300">Melhoria constante do produto.</p>
+        <h3 class="text-xl">Educação que Transforma</h3>
+        <p class="mt-2 text-slate-300">Ensinar fazendo: micro lições dentro do fluxo de uso, com exemplos reais.</p>
       </div>
       <div class="card p-6">
-        <h3 class="text-xl">Educação Financeira</h3>
-        <p class="mt-2 text-slate-300">Ensinar enquanto ajuda a gerenciar.</p>
+        <h3 class="text-xl">Foco em Resultado</h3>
+        <p class="mt-2 text-slate-300">Métricas de vida real: menos dívida, mais reserva, controle do mês.</p>
       </div>
       <div class="card p-6">
-        <h3 class="text-xl">Impacto Real</h3>
-        <p class="mt-2 text-slate-300">Foco no resultado no dia a dia.</p>
+        <h3 class="text-xl">Evolução Contínua</h3>
+        <p class="mt-2 text-slate-300">Iterações rápidas guiadas por dados, feedbacks e testes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilares" class="mx-auto max-w-7xl px-4 pb-12">
+    <div class="card p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-bold">Pilares do Finanza</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-slate-300">
+        <div class="card p-4">
+          <h3 class="font-semibold">Produto</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Cadastro/lançamento em 3 toques</li>
+            <li>Automação e categorias inteligentes</li>
+            <li>Relatórios claros e acionáveis</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Conteúdo</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Guia de primeiros 7 dias</li>
+            <li>Playbooks de metas e orçamento</li>
+            <li>Trilhas para MEI e pessoa física</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Comunidade</h3>
+          <ul class="mt-2 list-disc list-inside">
+            <li>Desafios mensais (ex.: 30 dias sem fiado)</li>
+            <li>Lives e Q&A</li>
+            <li>Programa de indicação</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -132,131 +165,158 @@
   <section id="canvas" class="mx-auto max-w-7xl px-4 pb-24">
     <div class="mb-4 flex items-center justify-between">
       <h2 class="text-2xl md:text-3xl font-bold">Business Model Canvas</h2>
-      <span class="tag">Versão 1.0</span>
+      <span class="tag">Versão 1.1</span>
     </div>
 
     <div class="bmc-grid">
-      <!-- Parcerias-Chave -->
       <article class="card p-4 b-kp">
         <h3 class="text-lg">Parcerias‑Chave</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Kiwify / Kirvano (pagamentos)</li>
-          <li>Supabase (infraestrutura)</li>
-          <li>Afroworld (ecossistema de tráfego)</li>
-          <li>Instituições educacionais (Aprendiz de Sucesso)</li>
+          <li>Kiwify / Kirvano (pagamentos e webhooks)</li>
+          <li>Supabase (auth, banco, storage)</li>
+          <li>Afroworld (aquisição e marca)</li>
+          <li>Escolas/Projetos (Aprendiz de Sucesso, etc.)</li>
         </ul>
       </article>
 
-      <!-- Atividades-Chave -->
       <article class="card p-4 b-ka">
         <h3 class="text-lg">Atividades‑Chave</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Evolução da plataforma</li>
-          <li>Conteúdo educacional</li>
-          <li>Aquisição de usuários (orgânico + pago)</li>
-          <li>Suporte ao cliente</li>
+          <li>Desenvolvimento e UX research</li>
+          <li>Conteúdo educativo (trilhas e VSLs)</li>
+          <li>Growth (orgânico + pago + indicações)</li>
+          <li>Suporte e operações</li>
         </ul>
       </article>
 
-      <!-- Recursos-Chave -->
       <article class="card p-4 b-kr">
         <h3 class="text-lg">Recursos‑Chave</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Dashboard + banco de dados</li>
-          <li>Time de produto e marketing</li>
-          <li>Marca e comunidade</li>
-          <li>Integrações e automações</li>
+          <li>Time e playbooks</li>
+          <li>Infra + integrações</li>
+          <li>Brand e comunidade</li>
+          <li>Dados e analytics</li>
         </ul>
       </article>
 
-      <!-- Proposta de Valor -->
       <article class="card p-4 b-vp">
         <h3 class="text-lg">Proposta de Valor</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Controle financeiro simples e intuitivo</li>
-          <li>Plano acessível com foco em resultado</li>
-          <li>Educação + gestão no mesmo lugar</li>
-          <li>Acesso liberado automaticamente por 30 dias após pagamento</li>
+          <li>Controle financeiro sem complicação</li>
+          <li>Educação prática integrada ao uso</li>
+          <li>Automação que poupa tempo</li>
+          <li>Resultados: clareza, hábito, progresso</li>
         </ul>
       </article>
 
-      <!-- Relacionamento com Clientes -->
       <article class="card p-4 b-cr">
-        <h3 class="text-lg">Relacionamento com Clientes</h3>
+        <h3 class="text-lg">Relacionamento</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
           <li>Suporte humanizado (WhatsApp/Chat)</li>
+          <li>Onboarding guiado e nudges</li>
           <li>Comunidade e desafios</li>
-          <li>Conteúdo gratuito recorrente</li>
-          <li>Programa de indicação</li>
+          <li>Feedback loop constante</li>
         </ul>
       </article>
 
-      <!-- Canais -->
       <article class="card p-4 b-ch">
         <h3 class="text-lg">Canais</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
           <li>Site (appfinanza.com.br)</li>
-          <li>Instagram, TikTok e YouTube</li>
+          <li>Instagram, TikTok, YouTube</li>
           <li>Parcerias educacionais</li>
-          <li>Indicações de usuários</li>
+          <li>SEO e conteúdo evergreen</li>
         </ul>
       </article>
 
-      <!-- Segmentos de Clientes -->
       <article class="card p-4 b-cs">
-        <h3 class="text-lg">Segmentos de Clientes</h3>
+        <h3 class="text-lg">Segmentos</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Jovens adultos</li>
-          <li>MEIs e microempreendedores</li>
-          <li>Pessoas endividadas</li>
-          <li>Estudantes e aprendizes</li>
+          <li>Indivíduos iniciantes</li>
+          <li>MEIs e pequenos negócios</li>
+          <li>Pessoas ajustando dívidas</li>
+          <li>Estudantes</li>
         </ul>
       </article>
 
-      <!-- Estrutura de Custos -->
       <article class="card p-4 b-cost">
         <h3 class="text-lg">Estrutura de Custos</h3>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Infraestrutura (Supabase, hospedagem)</li>
-          <li>Ferramentas SaaS (Lovable, etc.)</li>
-          <li>Marketing e tráfego pago</li>
-          <li>Conteúdo, design e suporte</li>
+          <li>Infraestrutura e ferramentas</li>
+          <li>Marketing e conteúdo</li>
+          <li>Suporte/Operações</li>
+          <li>Pesquisa & desenvolvimento</li>
         </ul>
       </article>
 
-      <!-- Fontes de Receita -->
       <article class="card p-4 b-rev">
         <h3 class="text-lg">Fontes de Receita</h3>
+        <p class="mt-2 text-slate-400 text-sm">(Obs.: “Valores” nesta página referem-se a <strong>valores da empresa</strong>. Aqui tratamos de <em>receita</em> do modelo de negócio.)</p>
         <ul class="mt-2 list-disc list-inside text-slate-300">
-          <li>Assinatura mensal (plano único de R$ 32,90)</li>
-          <li>Pacotes educacionais (cursos e eBooks)</li>
-          <li>Parcerias futuras (crédito, investimentos, seguros)</li>
+          <li>Assinatura mensal (plano único)</li>
+          <li>Produtos educacionais</li>
+          <li>Parcerias/afiliações alinhadas</li>
         </ul>
       </article>
     </div>
 
-    <!-- Observações -->
-    <div class="mt-6 text-sm text-slate-400">
-      <p>Obs.: Este Canvas é um ponto de partida vivo. Atualize conforme métricas e feedbacks dos usuários.</p>
-    </div>
+    <section id="diretrizes" class="mt-10 grid md:grid-cols-2 gap-4">
+      <div class="card p-6">
+        <h3 class="text-xl font-bold">Diretrizes de Produto</h3>
+        <ul class="mt-3 list-disc list-inside text-slate-300">
+          <li>Tempo até 1º lançamento ≤ 2 min</li>
+          <li>Onboarding com 3 passos</li>
+          <li>Micro‑lições contextuais</li>
+          <li>Relatórios com ações recomendadas</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h3 class="text-xl font-bold">Tom de Voz</h3>
+        <ul class="mt-3 list-disc list-inside text-slate-300">
+          <li>Clareza, acolhimento, zero jargão</li>
+          <li>Motivador sem prometer milagres</li>
+          <li>Orientado a ação e hábito</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="kpis" class="mt-10 card p-6">
+      <h3 class="text-xl font-bold">KPIs de Sucesso</h3>
+      <ul class="mt-3 list-disc list-inside text-slate-300">
+        <li>Ativação D7 ≥ 45% (lançou 1ª transação)</li>
+        <li>Retenção D30 ≥ 30%</li>
+        <li>NPS ≥ 60</li>
+        <li>Tempo médio de registro ≤ 15s</li>
+      </ul>
+    </section>
+
+    <section id="roadmap" class="mt-10 card p-6">
+      <h3 class="text-xl font-bold">Roadmap — próximos 90 dias</h3>
+      <ol class="mt-3 list-decimal list-inside text-slate-300 space-y-1">
+        <li><strong>Onboarding 2.0:</strong> tour guiado + metas iniciais</li>
+        <li><strong>Educação in‑product:</strong> micro‑lições e checklists</li>
+        <li><strong>Automação:</strong> regras de categoria e lembretes</li>
+        <li><strong>Relatórios de hábito:</strong> séries semanais e alertas</li>
+        <li><strong>Comunidade:</strong> desafio mensal e ranking</li>
+      </ol>
+    </section>
+
+    <section id="faq" class="mt-10 card p-6">
+      <h3 class="text-xl font-bold">FAQ Rápido</h3>
+      <details class="mt-3">
+        <summary class="cursor-pointer text-slate-200 font-semibold">“Valores” é preço?</summary>
+        <p class="mt-2 text-slate-300">Não. “Valores” aqui significa princípios que guiam o Finanza (ex.: simplicidade, ética). Preços aparecem só em páginas comerciais.</p>
+      </details>
+      <details class="mt-3">
+        <summary class="cursor-pointer text-slate-200 font-semibold">Posso usar sem saber de finanças?</summary>
+        <p class="mt-2 text-slate-300">Sim. O produto ensina no caminho: cada passo traz contexto e exemplos práticos.</p>
+      </details>
+    </section>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-12 text-sm text-slate-400">
-      <div class="flex items-center justify-between gap-4 flex-wrap">
-        <p>© <span id="year"></span> Finanza — parte do ecossistema Afroworld.</p>
-        <div class="flex items-center gap-3">
-          <a href="#" class="hover:text-slate-200">Privacidade</a>
-          <span aria-hidden>•</span>
-          <a href="#" class="hover:text-slate-200">Termos</a>
-        </div>
-      </div>
-    </div>
+  <footer class="border-t border-white/10 py-8 text-center text-slate-400">
+    <p>© <span id="year"></span> Finanza — parte do ecossistema Afroworld.</p>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
