@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiz de Sucesso - 2027</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos da Página Baseados na Identidade Visual */
+        :root {
+            --azul-projeto: #0040A1; /* */
+            --verde-projeto: #9BC836; /* */
+            --branco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--azul-projeto);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--branco);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px; 
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--verde-projeto);
+            font-weight: 900;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+        }
+
+        .headline {
+            margin-bottom: 30px;
+        }
+
+        .headline h2 {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .headline p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .video-section {
+            margin-bottom: 35px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .cta-section {
+            margin: 20px 0;
+        }
+
+        /* --- BOTÃO COM EFEITO PULSANTE --- */
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--verde-projeto);
+            color: var(--azul-projeto);
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            animation: pulse-green 2s infinite;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.03);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(155, 200, 54, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(155, 200, 54, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(155, 200, 54, 0); }
+        }
+
+        /* --- IMAGEM SEM EFEITO --- */
+        .image-container {
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .static-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* --- ESTILOS DO VÍDEO (REPLICADOS) --- */
+        #vsl-container { position: relative; max-width: 100%; height: auto; }
+        .video-wrapper { position: relative; width: 100%; padding-top: 56.25%; }
+        #player-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        #player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        #contextBlocker { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: auto; }
+        
+        .overlay-audio, .overlay-pause { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; z-index: 4; flex-direction: column; font-family: sans-serif; 
+        }
+
+        .audio-content { 
+            background: #4564FF; padding: 15px 20px; border: solid 2px white; 
+            border-radius: 16px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
+            display: flex; flex-direction: column; align-items: center; 
+            cursor: pointer; max-width: 260px; width: 85%; animation: fadeIn 0.8s ease; 
+        }
+
+        .audio-content p { margin: 5px 0; color: white; font-size: 1rem; font-weight: bold; }
+        .volume-video { width: 60px; height: 60px; border-radius: 8px; pointer-events: none; }
+        .overlay-pause { display: none; background-color: transparent; }
+        .pause-play-button { width: 70px; height: 70px; background: #4564FFE0; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .pause-icon { width: 25px; height: 25px; }
+        .progress-bar { height: 6px; background: white; width: 0%; position: absolute; bottom: 0; left: 0; z-index: 2; transition: width 0.2s ease; }
+
+        /* Estilo do Ícone do Instagram */
+        .footer-social {
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+        .instagram-link {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .instagram-link:hover {
+            transform: scale(1.1);
+        }
+        .instagram-link svg {
+            fill: var(--branco);
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Aprendiz de Sucesso</h1>
+    </header>
+
+    <section class="headline">
+        <h2>Transforme seu futuro com educação empreendedora</h2>
+        <p>Assista ao vídeo abaixo para entender como você pode decolar sua carreira em 2027.</p>
+    </section>
+
+    <!-- PLAYER DE VÍDEO -->
+    <section class="video-section">
+        <div id="vsl-container">
+          <div class="video-wrapper">
+            <div id="player-wrapper">
+              <div id="player"></div>
+              <div id="contextBlocker"></div>
+            </div>
+            <div class="overlay-audio" id="audioOverlay">
+              <div class="audio-content" id="unmuteBtn">
+                <p>Clique aqui</p>
+                <div class="icon-container">
+                  <video src="https://zeph.com.br/wp-content/uploads/2025/06/21volume.mp4" autoplay muted loop playsinline class="volume-video"></video>
+                </div>
+                <p>para ativar o som</p>
+              </div>
+            </div>
+            <div class="overlay-pause" id="pauseOverlay">
+              <div id="resumeBtn" class="pause-play-button">
+                <img src="https://zeph.com.br/wp-content/uploads/2025/06/play-button-arrowhead.svg" class="pause-icon" />
+              </div>
+            </div>
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+    </section>
+
+    <!-- PRIMEIRA CHAMADA -->
+    <section class="cta-section">
+        <a href="https://wa.me/5512991599185?text=Olá!%20Tenho%20interesse%20no%20projeto%20Aprendiz%20de%20Sucesso%202027." class="btn-whatsapp" target="_blank">
+            QUERO ME INSCREVER AGORA
+        </a>
+    </section>
+
+    <!-- IMAGEM ESTÁTICA -->
+    <div class="image-container">
+        <img src="https://res.cloudinary.com/dxpygpngo/image/upload/v1777484972/0660c1a4-d589-4ae3-8dfd-78c2807b4cca_xqn7jv.png" alt="Aprendiz de Sucesso" class="static-image">
+    </div>
+
+    <!-- SEGUNDO BOTÃO DE REFORÇO -->
+    <section class="cta-section">
+        <a href="https://wa.me/5512991599185?text=Olá!%20Vi%20a%20oportunidade%20para%202027%20e%20quero%20começar." class="btn-whatsapp" target="_blank">
+            GARANTIR MINHA VAGA EM 2027
+        </a>
+    </section>
+
+    <!-- ÍCONE DO INSTAGRAM -->
+    <div class="footer-social">
+        <a href="https://www.instagram.com/iamfelipezz/" target="_blank" class="instagram-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<script>
+    // SCRIPT ORIGINAL COM VIDEO ID ATUALIZADO
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    let player, interval;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'VrvsXzg1_zs', // ID Atualizado conforme solicitado
+        playerVars: {
+          'autoplay': 1,
+          'controls': 0,
+          'mute': 1,
+          'rel': 0,
+          'modestbranding': 1,
+          'showinfo': 0,
+          'enablejsapi': 1,
+          'fs': 0,
+          'playsinline': 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+      updateProgress();
+    }
+
+    function updateProgress() {
+      interval = setInterval(() => {
+        if (player && player.getDuration) {
+          const duration = player.getDuration();
+          const current = player.getCurrentTime();
+          const percent = (current / duration) * 100;
+          document.getElementById("progressBar").style.width = percent + "%";
+        }
+      }, 500);
+    }
+
+    document.getElementById("unmuteBtn").addEventListener("click", () => {
+      player.unMute();
+      player.seekTo(0);
+      player.playVideo();
+      document.getElementById("audioOverlay").style.display = "none";
+    });
+
+    document.getElementById("resumeBtn").addEventListener("click", () => {
+      player.playVideo();
+      document.getElementById("pauseOverlay").style.display = "none";
+    });
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PAUSED) {
+        document.getElementById("pauseOverlay").style.display = "flex";
+      } else {
+        document.getElementById("pauseOverlay").style.display = "none";
+      }
+    }
+
+    const blocker = document.getElementById("contextBlocker");
+    blocker.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    blocker.addEventListener("click", function () {
+      const state = player.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) { player.pauseVideo(); } else { player.playVideo(); }
+    });
+
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+</script>
+
+</body>
+</html>
